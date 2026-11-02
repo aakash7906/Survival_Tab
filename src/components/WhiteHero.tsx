@@ -52,12 +52,15 @@ export function WhiteHero() {
               </div>
             </div>
 
-            {/* Authentic Bottle Image from public/images */}
-            <div className="shrink-0 flex flex-col items-center">
+            {/* Authentic Bottle Image seamlessly blended without harsh white background */}
+            <div className="relative shrink-0 flex flex-col items-center justify-center group translate-y-5 sm:translate-y-12 lg:translate-y-16">
+              {/* Soft warm ambient lighting behind bottle */}
+              <div className="absolute inset-0 bg-amber-400/20 blur-3xl rounded-full scale-110 pointer-events-none transition-opacity duration-300 group-hover:opacity-100 opacity-70" />
+              
               <img
                 src="/images/banana.png"
                 alt="The Survival Tabs Banana"
-                className="h-56 sm:h-64 lg:h-72 w-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300"
+                className="relative z-10 h-56 sm:h-64 lg:h-72 w-auto object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.55)] group-hover:scale-105 transition-transform duration-300"
               />
             </div>
           </div>
