@@ -22,27 +22,28 @@ export function NutritionFactsSection() {
   return (
     <section
       id="nutrition"
-      className="w-full rounded-[2.5rem] bg-white border border-zinc-200/80 p-8 sm:p-14 lg:p-16 shadow-md my-8 overflow-hidden"
+      className="w-full rounded-2xl bg-white border border-zinc-200 p-6 sm:p-10 shadow-sm my-8"
     >
-      <div className="max-w-[1600px] mx-auto space-y-10">
+      <div className="space-y-8">
         
-        <div className="text-center max-w-3xl mx-auto space-y-3">
-          <span className="label-spec text-emerald-600 font-bold tracking-widest inline-flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-emerald-600" />
+        {/* Title & Header */}
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <span className="text-[11px] font-bold tracking-widest uppercase text-red-600 bg-red-50 border border-red-200 px-3 py-1 rounded-full inline-block">
             100% US RECOMMENDED DAILY ALLOWANCE
           </span>
-          <h2 className="heading-display text-3xl sm:text-4xl lg:text-5xl font-black text-zinc-950">
-            Official Nutritional Facts Sheet
+          <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-zinc-900">
+            Official Nutrition Facts Sheet
           </h2>
-          <p className="body-spec text-zinc-600 text-sm sm:text-base">
-            Per daily ration (12 chewable tablets). Provides 240 completely assimilated calories with zero waste.
+          <div className="h-0.5 w-16 bg-red-600 mx-auto" />
+          <p className="text-xs sm:text-sm text-zinc-600 pt-1">
+            Based on a daily survival ration of 12 chewable tablets (240 calories, 99% bio-assimilated).
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-2">
           
-          {/* Nutrition Label Box */}
-          <div className="lg:col-span-5 rounded-2xl bg-zinc-50 border-2 border-zinc-900 p-6 font-mono text-zinc-900 shadow-lg">
+          {/* FDA Nutrition Facts Label Box */}
+          <div className="lg:col-span-5 rounded-xl bg-zinc-50 border-2 border-zinc-900 p-5 font-mono text-zinc-900 shadow">
             <div className="border-b-8 border-zinc-900 pb-2">
               <h3 className="font-sans font-black text-3xl tracking-tight leading-none">
                 Nutrition Facts
@@ -60,7 +61,9 @@ export function NutritionFactsSection() {
                 <span className="text-xs font-bold">Amount Per Serving</span>
                 <div className="font-black text-2xl">Calories 240</div>
               </div>
-              <span className="text-xs text-zinc-500 font-semibold">99% Bio-Absorbed</span>
+              <span className="text-xs text-emerald-700 font-bold bg-emerald-100 px-2 py-0.5 rounded">
+                99% Bio-Absorbed
+              </span>
             </div>
 
             <div className="divide-y divide-zinc-300 text-xs font-sans">
@@ -91,10 +94,10 @@ export function NutritionFactsSection() {
             </div>
           </div>
 
-          {/* 15 Essential Vitamins Table */}
-          <div className="lg:col-span-7 rounded-2xl bg-zinc-50 border border-zinc-200 p-6 space-y-4">
+          {/* 15 Essential Vitamins & Minerals Table */}
+          <div className="lg:col-span-7 rounded-xl bg-zinc-50 border border-zinc-200 p-5 sm:p-6 space-y-4">
             <div className="flex items-center justify-between border-b border-zinc-200 pb-3">
-              <h4 className="font-bold text-base text-zinc-900">
+              <h4 className="font-bold text-sm sm:text-base text-zinc-900">
                 15 Essential Vitamins & Minerals (100% US RDA)
               </h4>
               <span className="text-xs font-bold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full">
@@ -122,10 +125,10 @@ export function NutritionFactsSection() {
               ))}
             </div>
 
-            <div className="pt-2 text-xs text-zinc-500 flex items-center gap-2">
-              <ShieldCheck className="h-4 w-4 text-emerald-600" />
+            <div className="pt-2 text-xs text-zinc-600 flex items-center gap-2 border-t border-zinc-200">
+              <ShieldCheck className="h-4 w-4 text-emerald-600 shrink-0" />
               <span>
-                Non-GMO &bull; Gluten Free &bull; Zero Artificial Preservatives &bull; Nitrogen Packaged
+                Non-GMO &bull; Gluten Free &bull; Zero Artificial Preservatives &bull; Sealed with Nitrogen
               </span>
             </div>
           </div>

@@ -3,6 +3,7 @@ import { WhiteNavbar } from "./components/WhiteNavbar"
 import { WhiteHero } from "./components/WhiteHero"
 import { EmergencyRationsSection } from "./components/EmergencyRationsSection"
 import { PurchaseSection, type ProductItem } from "./components/PurchaseSection"
+import { NutritionFactsSection } from "./components/NutritionFactsSection"
 import { SurvivalConceptSection } from "./components/SurvivalConceptSection"
 import { WhiteFooter } from "./components/WhiteFooter"
 import { CartDrawer, type CartItem } from "./components/CartDrawer"
@@ -59,6 +60,7 @@ export default function App() {
           <WhiteHero />
           <EmergencyRationsSection />
           <PurchaseSection onAddToCart={handleAddToCart} />
+          <NutritionFactsSection />
           <SurvivalConceptSection />
         </main>
       </div>
