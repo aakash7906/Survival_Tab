@@ -43,7 +43,7 @@ export function CartDrawer({
 
           <button
             onClick={onClose}
-            className="rounded-full p-2 text-zinc-400 hover:text-zinc-900 hover:bg-zinc-100"
+            className="rounded-full p-2 text-zinc-400 hover:text-zinc-900 hover:bg-zinc-100 cursor-pointer"
           >
             <X className="h-5 w-5" />
           </button>
@@ -58,14 +58,14 @@ export function CartDrawer({
             </div>
           ) : (
             <div>
-              Add <strong>${freeShippingThreshold.toFixed(2)}</strong> more to get{" "}
+              Add <strong>${freeShippingThreshold.toFixed(2)}</strong> more to unlock{" "}
               <strong>Free Shipping</strong> (orders over $150).
             </div>
           )}
         </div>
 
         {/* Items List */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-4">
+        <div className="flex-1 overflow-y-auto p-6 space-y-3">
           {items.length === 0 ? (
             <div className="py-16 text-center text-zinc-400 space-y-2">
               <ShoppingBag className="h-12 w-12 mx-auto stroke-1" />
@@ -76,23 +76,32 @@ export function CartDrawer({
             items.map((item) => (
               <div
                 key={item.product.id}
-                className="flex items-start justify-between gap-4 p-3 rounded-xl border border-zinc-200 bg-zinc-50"
+                className="flex items-center justify-between gap-4 p-3 rounded-xl border border-zinc-200 bg-zinc-50"
               >
-                <div>
-                  <div className="font-bold text-sm text-zinc-900">{item.product.name}</div>
-                  <div className="text-xs text-zinc-500">{item.product.flavor}</div>
-                  <div className="text-xs text-zinc-700 font-semibold mt-1">
-                    Qty: {item.quantity} &times; ${item.product.price.toFixed(2)}
+                <div className="flex items-center gap-3">
+                  {item.product.image && (
+                    <img
+                      src={item.product.image}
+                      alt={item.product.name}
+                      className="h-12 w-12 object-contain rounded bg-white border border-zinc-200 p-0.5 shrink-0"
+                    />
+                  )}
+                  <div>
+                    <div className="font-bold text-sm text-zinc-900">{item.product.name}</div>
+                    <div className="text-xs text-zinc-500">{item.product.flavor}</div>
+                    <div className="text-xs text-zinc-700 font-semibold mt-1">
+                      Qty: {item.quantity} &times; ${item.product.price.toFixed(2)}
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex flex-col items-end gap-2">
+                <div className="flex flex-col items-end gap-2 shrink-0">
                   <span className="font-black text-sm text-zinc-950">
                     ${(item.product.price * item.quantity).toFixed(2)}
                   </span>
                   <button
                     onClick={() => onRemove(item.product.id)}
-                    className="text-zinc-400 hover:text-red-600"
+                    className="text-zinc-400 hover:text-red-600 cursor-pointer"
                     title="Remove item"
                   >
                     <Trash2 className="h-4 w-4" />
@@ -115,7 +124,7 @@ export function CartDrawer({
                 <span>Shipping</span>
                 <span>{isFreeShipping ? "FREE" : "$9.95"}</span>
               </div>
-              <div className="flex justify-between text-base font-black text-zinc-950 pt-2 border-t border-zinc-200">
+              <div className="flex justify-between text-base font-black text-zinc-900 pt-2 border-t border-zinc-200">
                 <span>Total</span>
                 <span>${(subtotal + (isFreeShipping ? 0 : 9.95)).toFixed(2)}</span>
               </div>
@@ -125,7 +134,7 @@ export function CartDrawer({
               onClick={() => {
                 alert(`Proceeding to checkout with $${(subtotal + (isFreeShipping ? 0 : 9.95)).toFixed(2)} in Survival Tabs rations.`)
               }}
-              className="w-full flex items-center justify-center gap-2 rounded-full bg-red-600 hover:bg-red-700 text-white font-bold py-3.5 px-6 uppercase tracking-wider text-xs shadow-lg transition-all"
+              className="w-full flex items-center justify-center gap-2 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 uppercase tracking-wider text-xs shadow transition-all cursor-pointer"
             >
               <span>Proceed to Checkout</span>
               <ArrowRight className="h-4 w-4" />
@@ -133,7 +142,7 @@ export function CartDrawer({
 
             <button
               onClick={onClear}
-              className="w-full text-center text-xs text-zinc-400 hover:text-zinc-700"
+              className="w-full text-center text-xs text-zinc-400 hover:text-zinc-700 cursor-pointer"
             >
               Clear Cart
             </button>

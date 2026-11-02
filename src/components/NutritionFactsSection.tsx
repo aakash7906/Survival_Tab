@@ -1,138 +1,267 @@
-import { CheckCircle2, ShieldCheck } from "lucide-react"
-
 export function NutritionFactsSection() {
-  const nutrients = [
-    { name: "Vitamin A", amount: "5,000 IU", rda: "100%" },
-    { name: "Vitamin C", amount: "60 mg", rda: "100%" },
-    { name: "Vitamin D3", amount: "400 IU", rda: "100%" },
-    { name: "Vitamin E", amount: "30 IU", rda: "100%" },
-    { name: "Thiamin (B1)", amount: "1.5 mg", rda: "100%" },
-    { name: "Riboflavin (B2)", amount: "1.7 mg", rda: "100%" },
-    { name: "Niacin (B3)", amount: "20 mg", rda: "100%" },
-    { name: "Vitamin B6", amount: "2.0 mg", rda: "100%" },
-    { name: "Folic Acid", amount: "400 mcg", rda: "100%" },
-    { name: "Vitamin B12", amount: "6.0 mcg", rda: "100%" },
-    { name: "Biotin", amount: "300 mcg", rda: "100%" },
-    { name: "Pantothenic Acid", amount: "10 mg", rda: "100%" },
-    { name: "Calcium", amount: "250 mg", rda: "25%" },
-    { name: "Iron", amount: "18 mg", rda: "100%" },
-    { name: "Zinc", amount: "15 mg", rda: "100%" },
-  ]
-
   return (
     <section
       id="nutrition"
-      className="w-full rounded-2xl bg-white border border-zinc-200 p-6 sm:p-10 shadow-sm my-8"
+      className="relative w-full rounded-3xl bg-white border border-slate-200 p-6 sm:p-10 lg:p-14 shadow-sm overflow-hidden my-8"
     >
-      <div className="space-y-8">
-        
-        {/* Title & Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-2">
-          <span className="text-[11px] font-bold tracking-widest uppercase text-red-600 bg-red-50 border border-red-200 px-3 py-1 rounded-full inline-block">
-            100% US RECOMMENDED DAILY ALLOWANCE
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-zinc-900">
-            Official Nutrition Facts Sheet
+      {/* Subtle Winter Mountain / Cabin Background Silhouette matching official spec graphic */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.06] bg-bottom bg-no-repeat bg-cover"
+        style={{
+          backgroundImage: `radial-gradient(circle at 50% 100%, rgba(15, 23, 42, 0.15), transparent 70%)`,
+        }}
+      />
+      {/* Decorative SVG Mountain & Cabin silhouette watermark */}
+      <div className="absolute inset-x-0 bottom-0 h-72 pointer-events-none opacity-[0.05] overflow-hidden flex items-end justify-center">
+        <svg
+          viewBox="0 0 1200 400"
+          className="w-full h-full object-cover"
+          fill="none"
+          stroke="currentColor"
+        >
+          {/* Distant mountains */}
+          <path
+            d="M0 320 L180 180 L350 290 L520 140 L700 280 L880 150 L1050 260 L1200 170 L1200 400 L0 400 Z"
+            fill="#0f172a"
+          />
+          {/* Cabin silhouette */}
+          <rect x="580" y="270" width="130" height="90" fill="#0f172a" />
+          <polygon points="565,270 645,210 725,270" fill="#0f172a" />
+          {/* Pine trees */}
+          <polygon points="460,340 480,290 500,340" fill="#0f172a" />
+          <polygon points="465,310 480,260 495,310" fill="#0f172a" />
+          <polygon points="740,350 760,280 780,350" fill="#0f172a" />
+          <polygon points="745,310 760,250 775,310" fill="#0f172a" />
+        </svg>
+      </div>
+
+      <div className="relative z-10 max-w-5xl mx-auto space-y-8 font-sans">
+        {/* Main Headline */}
+        <div className="text-center space-y-3">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-zinc-900">
+            DELICIOUS! NUTRITIOUS! EASY TO STORE!
           </h2>
-          <div className="h-0.5 w-16 bg-red-600 mx-auto" />
-          <p className="text-xs sm:text-sm text-zinc-600 pt-1">
-            Based on a daily survival ration of 12 chewable tablets (240 calories, 99% bio-assimilated).
+          <p className="text-xs sm:text-[13px] text-zinc-700 leading-relaxed max-w-4xl mx-auto pt-1 font-normal">
+            <strong>Ingredients:</strong> Non-fat Dry Milk Solids, Sucrose, Vegetable Oils (Including Sunflower and/or Safflower Oil), Calcium Phosphate, Ascorbic Acid, Vitamin E Acetate, Niacinamide, Ferrous Fumarate, Zinc Gluconate, Natural and Artificial Flavors, Calcium Pantothenate, Potassium Pyridoxine Hydrochloride, Riboflavin, Thiamin Hudrochloride, Vitamin A Palmitate, Vitamin D3, Folic Acid, Potassium Iodide, Cyanocobalamin.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-2">
+        {/* Nutrition Facts Heading */}
+        <div className="text-center pt-2">
+          <h3 className="text-2xl sm:text-3xl font-black text-zinc-900 tracking-tight">
+            Nutrition Facts
+          </h3>
+        </div>
+
+        {/* Official 2-Column Nutrition Facts Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-14 text-sm text-zinc-800 border-t border-b border-zinc-200 py-6">
           
-          {/* FDA Nutrition Facts Label Box */}
-          <div className="lg:col-span-5 rounded-xl bg-zinc-50 border-2 border-zinc-900 p-5 font-mono text-zinc-900 shadow">
-            <div className="border-b-8 border-zinc-900 pb-2">
-              <h3 className="font-sans font-black text-3xl tracking-tight leading-none">
-                Nutrition Facts
-              </h3>
-              <p className="font-sans text-xs text-zinc-600 mt-1">
-                Serving Size: 12 Chewable Tablets (3.9g each)
-              </p>
-              <p className="font-sans text-xs text-zinc-600">
-                Servings Per Container: 15 to 60 Days
-              </p>
+          {/* Left Column: Macronutrients and Daily Values */}
+          <div className="space-y-1.5 divide-y divide-zinc-200/80">
+            
+            <div className="flex justify-between items-baseline pb-1.5 font-bold text-xs sm:text-sm">
+              <span>Serving Size Amount Per Serving</span>
+              <span>Servings Per Container: 15</span>
             </div>
 
-            <div className="border-b-4 border-zinc-900 py-2 flex justify-between items-baseline font-sans">
-              <div>
-                <span className="text-xs font-bold">Amount Per Serving</span>
-                <div className="font-black text-2xl">Calories 240</div>
-              </div>
-              <span className="text-xs text-emerald-700 font-bold bg-emerald-100 px-2 py-0.5 rounded">
-                99% Bio-Absorbed
-              </span>
+            <div className="flex justify-between items-baseline pt-2 text-xs sm:text-sm">
+              <span className="font-semibold text-zinc-900">Calories</span>
+              <span className="font-bold text-zinc-900">240</span>
             </div>
 
-            <div className="divide-y divide-zinc-300 text-xs font-sans">
-              <div className="flex justify-between py-1.5 font-bold">
-                <span>Total Fat 12g</span>
-                <span>18%</span>
-              </div>
-              <div className="flex justify-between py-1 pl-4 text-zinc-600">
-                <span>Essential Fatty Acids 12g</span>
-                <span></span>
-              </div>
-              <div className="flex justify-between py-1.5 font-bold">
-                <span>Sodium 140mg</span>
-                <span>6%</span>
-              </div>
-              <div className="flex justify-between py-1.5 font-bold">
-                <span>Total Carbohydrate 31g</span>
-                <span>10%</span>
-              </div>
-              <div className="flex justify-between py-1.5 font-bold">
-                <span>Protein 4g (100% Bio-Value)</span>
-                <span>8%</span>
-              </div>
+            <div className="flex justify-between items-baseline pt-2 text-xs sm:text-sm">
+              <span className="text-zinc-700">Calories from Fat</span>
+              <span className="font-bold text-zinc-900">108</span>
             </div>
 
-            <div className="border-t-4 border-zinc-900 pt-2 text-[10px] text-zinc-500 font-sans leading-tight">
-              * Percent Daily Values are based on a 2,000 calorie diet. Specially engineered to sustain life and eliminate muscular catabolism during acute crises.
+            <div className="text-right text-[11px] font-bold text-zinc-600 pt-2 pb-0.5">
+              % Daily Value*
             </div>
+
+            <div className="flex justify-between items-baseline pt-1.5 text-xs sm:text-sm">
+              <span className="font-semibold text-zinc-900">Total Fat 12g</span>
+              <span className="font-bold text-zinc-900">18%</span>
+            </div>
+
+            <div className="flex justify-between items-baseline pt-1.5 pl-3 text-xs sm:text-sm text-zinc-700">
+              <span>Saturated Fat 3g</span>
+              <span className="font-bold text-zinc-900">15%</span>
+            </div>
+
+            <div className="flex justify-between items-baseline pt-1.5 text-xs sm:text-sm">
+              <span className="font-semibold text-zinc-900">Cholesterol 3mg</span>
+              <span className="font-bold text-zinc-900">1%</span>
+            </div>
+
+            <div className="flex justify-between items-baseline pt-1.5 text-xs sm:text-sm">
+              <span className="font-semibold text-zinc-900">Sodium 140mg</span>
+              <span className="font-bold text-zinc-900">6%</span>
+            </div>
+
+            <div className="flex justify-between items-baseline pt-1.5 text-xs sm:text-sm">
+              <span className="font-semibold text-zinc-900">Total Carbohydrates 30g</span>
+              <span className="font-bold text-zinc-900">10%</span>
+            </div>
+
+            <div className="flex justify-between items-baseline pt-1.5 pl-3 text-xs sm:text-sm text-zinc-700">
+              <span>Dietary Fiber 0g</span>
+              <span className="font-bold text-zinc-900">0%</span>
+            </div>
+
+            <div className="flex justify-between items-baseline pt-1.5 pl-3 text-xs sm:text-sm text-zinc-700">
+              <span>Sugars 12g</span>
+              <span className="text-zinc-500">&mdash;</span>
+            </div>
+
+            <div className="flex justify-between items-baseline pt-2 font-bold text-xs sm:text-sm text-zinc-900">
+              <span>Protein 4g</span>
+              <span></span>
+            </div>
+
           </div>
 
-          {/* 15 Essential Vitamins & Minerals Table */}
-          <div className="lg:col-span-7 rounded-xl bg-zinc-50 border border-zinc-200 p-5 sm:p-6 space-y-4">
-            <div className="flex items-center justify-between border-b border-zinc-200 pb-3">
-              <h4 className="font-bold text-sm sm:text-base text-zinc-900">
-                15 Essential Vitamins & Minerals (100% US RDA)
-              </h4>
-              <span className="text-xs font-bold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full">
-                Laboratory Verified
-              </span>
+          {/* Right Column: Vitamins & Minerals (2-subcolumns) */}
+          <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-xs sm:text-sm self-start">
+            
+            {/* Sub-column 1 */}
+            <div className="space-y-2">
+              <div className="flex justify-between">
+                <span>Vitamin A</span>
+                <span className="font-bold text-zinc-900">100%</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Calcium</span>
+                <span className="font-bold text-zinc-900">20%</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Thiamin (B1)</span>
+                <span className="font-bold text-zinc-900">100%</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Riboflavin (B2)</span>
+                <span className="font-bold text-zinc-900">100%</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Niacin</span>
+                <span className="font-bold text-zinc-900">100%</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Vitamin D</span>
+                <span className="font-bold text-zinc-900">100%</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Pyridoxine HCL (B6)</span>
+                <span className="font-bold text-zinc-900">100%</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Folic Acid</span>
+                <span className="font-bold text-zinc-900">100%</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Vitamin B12</span>
+                <span className="font-bold text-zinc-900">100%</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Iodine</span>
+                <span className="font-bold text-zinc-900">100%</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Zinc</span>
+                <span className="font-bold text-zinc-900">100%</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Manganese</span>
+                <span className="font-bold text-zinc-900">100%</span>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-              {nutrients.map((n, i) => (
-                <div
-                  key={i}
-                  className="flex items-center justify-between bg-white rounded-lg border border-zinc-200/80 px-3 py-2"
-                >
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
-                    <span className="font-semibold text-zinc-800">{n.name}</span>
-                  </div>
-                  <div className="flex items-center gap-2 font-mono">
-                    <span className="text-zinc-500">{n.amount}</span>
-                    <span className="font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded text-[10px]">
-                      {n.rda}
-                    </span>
-                  </div>
-                </div>
-              ))}
+            {/* Sub-column 2 */}
+            <div className="space-y-2">
+              <div className="flex justify-between">
+                <span>Vitamin C</span>
+                <span className="font-bold text-zinc-900">100%</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Iron</span>
+                <span className="font-bold text-zinc-900">100%</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Vitamin E</span>
+                <span className="font-bold text-zinc-900">100%</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Phosphorous</span>
+                <span className="font-bold text-zinc-900">10%</span>
+              </div>
             </div>
 
-            <div className="pt-2 text-xs text-zinc-600 flex items-center gap-2 border-t border-zinc-200">
-              <ShieldCheck className="h-4 w-4 text-emerald-600 shrink-0" />
-              <span>
-                Non-GMO &bull; Gluten Free &bull; Zero Artificial Preservatives &bull; Sealed with Nitrogen
-              </span>
-            </div>
           </div>
 
+        </div>
+
+        {/* Footnote */}
+        <p className="text-center text-xs text-zinc-600 font-sans italic">
+          *Percent Daily Values are based on a 2,000 calories diet. Your daily values may be higher or lower depending on your calorie needs.
+        </p>
+
+        {/* Official Calorie Comparison Reference Table */}
+        <div className="overflow-x-auto pt-2">
+          <table className="w-full text-xs text-left text-zinc-700 border-t border-zinc-200">
+            <thead>
+              <tr className="border-b border-zinc-200 text-zinc-900 font-bold">
+                <th className="py-2.5">Total Fat</th>
+                <th className="py-2.5">Calories</th>
+                <th className="py-2.5 font-mono">2,000</th>
+                <th className="py-2.5 font-mono">2,500</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-zinc-100">
+              <tr>
+                <td className="py-1.5 font-medium text-zinc-900">Saturated Fat</td>
+                <td className="py-1.5 text-zinc-500">Less than</td>
+                <td className="py-1.5 font-mono font-semibold">65g</td>
+                <td className="py-1.5 font-mono font-semibold">80g</td>
+              </tr>
+              <tr>
+                <td className="py-1.5 font-medium text-zinc-900">Cholesterol</td>
+                <td className="py-1.5 text-zinc-500">Less than</td>
+                <td className="py-1.5 font-mono font-semibold">20g</td>
+                <td className="py-1.5 font-mono font-semibold">25g</td>
+              </tr>
+              <tr>
+                <td className="py-1.5 font-medium text-zinc-900">Sodium</td>
+                <td className="py-1.5 text-zinc-500">Less than</td>
+                <td className="py-1.5 font-mono font-semibold">300mg</td>
+                <td className="py-1.5 font-mono font-semibold">300mg</td>
+              </tr>
+              <tr>
+                <td className="py-1.5 font-medium text-zinc-900">Total Carbohydrate</td>
+                <td className="py-1.5 text-zinc-500">Less than</td>
+                <td className="py-1.5 font-mono font-semibold">2,400mg</td>
+                <td className="py-1.5 font-mono font-semibold">2,400mg</td>
+              </tr>
+              <tr>
+                <td className="py-1.5 font-medium text-zinc-900">Dietary Fiber</td>
+                <td className="py-1.5 text-zinc-500"></td>
+                <td className="py-1.5 font-mono font-semibold">300g</td>
+                <td className="py-1.5 font-mono font-semibold">375g</td>
+              </tr>
+              <tr>
+                <td className="py-1.5 font-medium text-zinc-900"></td>
+                <td className="py-1.5 text-zinc-500"></td>
+                <td className="py-1.5 font-mono font-semibold">25g</td>
+                <td className="py-1.5 font-mono font-semibold">30g</td>
+              </tr>
+            </tbody>
+          </table>
+
+          {/* Calories per gram footnote */}
+          <div className="pt-3 border-t border-zinc-200 flex flex-wrap items-center justify-between gap-4 text-xs text-zinc-600 font-mono">
+            <span className="font-bold text-zinc-800">Calories per gram:</span>
+            <span>Fat 9 calories per gram</span>
+            <span>Carbohydrate 4 calories per gram</span>
+            <span>Protein 4 calories per gram</span>
+          </div>
         </div>
 
       </div>

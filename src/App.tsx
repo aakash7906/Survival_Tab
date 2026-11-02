@@ -18,6 +18,7 @@ export default function App() {
         price: 39.95,
         isNew: true,
         illustration: "🍌 Natural Banana",
+        image: "/images/banana.png",
       },
       quantity: 1,
     },
@@ -50,25 +51,26 @@ export default function App() {
   const totalCartCount = cart.reduce((acc, item) => acc + item.quantity, 0)
 
   return (
-    <div className="min-h-screen bg-white text-zinc-900 selection:bg-yellow-300 selection:text-zinc-950 font-sans flex flex-col justify-between">
-      <div>
-        {/* Header Navigation */}
-        <WhiteNavbar cartCount={totalCartCount} onOpenCart={() => setCartOpen(true)} />
+    <div className="min-h-screen bg-white text-zinc-900 font-sans flex flex-col justify-between selection:bg-red-100 selection:text-red-900">
+      {/* Official White Header / Navbar */}
+      <WhiteNavbar
+        cartCount={totalCartCount}
+        onOpenCart={() => setCartOpen(true)}
+      />
 
-        {/* Minimal Main Sections from survivaltabs.com */}
-        <main className="max-w-6xl mx-auto px-4 py-6 space-y-6">
-          <WhiteHero />
-          <EmergencyRationsSection />
-          <PurchaseSection onAddToCart={handleAddToCart} />
-          <NutritionFactsSection />
-          <SurvivalConceptSection />
-        </main>
-      </div>
+      {/* Main Content Layout with responsive margin between navbar and WhiteHero */}
+      <main className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8 pt-4 sm:pt-6 lg:pt-8 pb-12">
+        <WhiteHero />
+        <EmergencyRationsSection />
+        <PurchaseSection onAddToCart={handleAddToCart} />
+        <NutritionFactsSection />
+        <SurvivalConceptSection />
+      </main>
 
-      {/* Footer */}
+      {/* Official White Footer */}
       <WhiteFooter />
 
-      {/* Slide-out Cart Drawer */}
+      {/* Sliding Slide-over Cart Drawer */}
       <CartDrawer
         isOpen={cartOpen}
         onClose={() => setCartOpen(false)}

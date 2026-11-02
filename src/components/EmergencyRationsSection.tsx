@@ -3,23 +3,20 @@ export function EmergencyRationsSection() {
     <section id="emergency" className="w-full py-12 sm:py-16 bg-white border-b border-zinc-200">
       <div className="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center gap-8 md:gap-14">
         
-        {/* Made in the USA Globe & Flag Graphic from Screenshot */}
+        {/* Official Made in the USA Emblem from public/images */}
         <div className="shrink-0 flex flex-col items-center text-center">
-          <div className="relative flex items-center justify-center">
-            {/* Globe */}
-            <div className="h-24 w-24 rounded-full bg-gradient-to-tr from-sky-600 via-blue-600 to-emerald-500 shadow-lg flex items-center justify-center text-white border-2 border-white">
-              <span className="text-2xl font-black tracking-tight">USA</span>
-            </div>
-            {/* USA Flag badge banner */}
-            <div className="absolute -bottom-2.5 rounded bg-red-600 border border-white px-3 py-0.5 text-white shadow font-black text-[10px] tracking-wider whitespace-nowrap">
-              MADE IN THE USA
-            </div>
+          <div className="relative flex flex-col items-center justify-center p-3 rounded-2xl bg-zinc-50 border border-zinc-200/80 shadow-sm">
+            <img
+              src="/images/made-in-usa.png"
+              alt="Made in the USA - Survival Tabs"
+              className="h-28 sm:h-32 w-auto object-contain drop-shadow"
+            />
           </div>
         </div>
 
         {/* Text Block directly from survivaltabs.com */}
         <div className="space-y-4 text-center md:text-left flex-1">
-          <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-zinc-950 uppercase">
+          <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-zinc-900 uppercase">
             EMERGENCY FOOD RATIONS
           </h2>
 
