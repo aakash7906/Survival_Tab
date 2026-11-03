@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from "react"
 import {
-  DollarSign,
+
   PackageCheck,
   Store,
   Share2,
@@ -9,7 +9,7 @@ import {
   Phone,
   Mail,
   ArrowRight,
-  Globe,
+
   Truck,
   ShieldCheck,
   FileText,
@@ -66,10 +66,7 @@ export function MakeMoneyPage({ onNavigateHome, onNavigateContact }: MakeMoneyPa
 
       {/* Main Header / Banner */}
       <section className="relative rounded-2xl sm:rounded-3xl bg-white border border-zinc-200 p-6 sm:p-10 lg:p-14 shadow-xs overflow-hidden text-center space-y-4 sm:space-y-6">
-        <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 border border-emerald-200 px-4 py-1 text-xs font-bold text-emerald-800 tracking-wider uppercase">
-          <DollarSign className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
-          <span>MAKE MONEY WITH US!</span>
-        </div>
+       
 
         <h1 className="text-3xl min-[400px]:text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-zinc-900 max-w-4xl mx-auto leading-tight">
           3 WAYS TO MAKE MONEY <br className="hidden sm:inline" />
@@ -243,10 +240,7 @@ export function MakeMoneyPage({ onNavigateHome, onNavigateContact }: MakeMoneyPa
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-8 space-y-4">
-            <div className="inline-flex items-center gap-2 rounded-full bg-red-500/20 border border-red-500/40 px-3.5 py-1 text-xs font-bold text-red-400 uppercase tracking-wider">
-              <Globe className="h-3.5 w-3.5 text-red-400" />
-              <span>FOREIGN EXPORT &bull; WORLDWIDE DISTRIBUTION</span>
-            </div>
+           
 
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-white leading-tight">
               International &amp; Government Bulk Export
@@ -290,9 +284,7 @@ export function MakeMoneyPage({ onNavigateHome, onNavigateContact }: MakeMoneyPa
         className="rounded-2xl sm:rounded-3xl bg-white border border-zinc-200 p-6 sm:p-10 lg:p-14 shadow-xs space-y-8"
       >
         <div className="text-center space-y-2 max-w-2xl mx-auto">
-          <span className="text-xs font-bold uppercase tracking-wider text-red-600">
-            Get Started Today
-          </span>
+
           <h2 className="text-2xl sm:text-3xl font-black text-zinc-900 uppercase">
             Partner &amp; Reseller Application
           </h2>

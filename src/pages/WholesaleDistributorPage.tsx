@@ -2,7 +2,7 @@ import { useState, type FormEvent } from "react"
 import {
   CheckCircle2,
   TrendingUp,
-  ShieldCheck,
+
   Building2,
   Phone,
   Mail,
@@ -195,10 +195,7 @@ export function WholesaleDistributorPage({
       <section className="rounded-2xl sm:rounded-3xl bg-zinc-900 text-white p-6 sm:p-10 lg:p-12 shadow-xl border border-zinc-800">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7 space-y-4">
-            <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/20 border border-emerald-500/40 px-3.5 py-1 text-xs font-bold text-emerald-400 uppercase tracking-wider">
-              <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
-              <span>COMMERCIAL READINESS</span>
-            </div>
+
 
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-white leading-tight">
               Zero Expiration Loss with 25-Year Certified Shelf Life

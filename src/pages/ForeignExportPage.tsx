@@ -204,8 +204,7 @@ export function ForeignExportPage({
       <section className="relative rounded-2xl sm:rounded-3xl bg-white border border-zinc-200 p-6 sm:p-10 lg:p-14 shadow-xs overflow-hidden text-center space-y-8">
         <div className="space-y-3">
           <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 border border-blue-200 px-4 py-1 text-xs font-bold text-blue-800 tracking-wider uppercase">
-            <Globe className="h-3.5 w-3.5 text-blue-600 shrink-0" />
-            <span>GLOBAL COMMERCE &bull; INTERNATIONAL BULK SUPPLY</span>
+            <span>GLOBAL COMMERCE INTERNATIONAL BULK SUPPLY</span>
           </div>
 
           <h1 className="text-3xl min-[400px]:text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-zinc-900 max-w-4xl mx-auto leading-tight">

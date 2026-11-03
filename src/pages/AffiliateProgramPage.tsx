@@ -78,7 +78,7 @@ export function AffiliateProgramPage({
         <div className="text-center space-y-4 max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 border border-blue-200 px-4 py-1 text-xs font-bold text-blue-800 tracking-wider uppercase">
             <Share2 className="h-3.5 w-3.5 text-blue-600 shrink-0" />
-            <span>PARTNER NETWORK &bull; EARN COMMISSIONS</span>
+            <span>PARTNER NETWORK EARN COMMISSIONS</span>
           </div>
 
           <h1 className="text-3xl min-[400px]:text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-zinc-900 leading-tight">
