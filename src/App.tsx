@@ -1,15 +1,17 @@
 import { useState, useEffect } from "react"
-import { WhiteNavbar } from "./components/Navbar"
+import { Navbar } from "./components/Navbar"
 import { HomePage } from "./pages/HomePage"
 import { FaqPage } from "./pages/FaqPage"
 import { ContactUsPage } from "./pages/ContactUsPage"
 import { TestimonialsPage } from "./pages/TestimonialsPage"
-import { WhiteFooter } from "./components/Footer"
+import { Footer } from "./components/Footer"
 import { CartDrawer, type CartItem } from "./components/CartDrawer"
 import type { ProductItem } from "./components/PurchaseSection"
 
+type Page = "home" | "faq" | "contact" | "testimonials"
+
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<"home" | "faq" | "contact" | "testimonials">("home")
+  const [currentPage, setCurrentPage] = useState<Page>("home")
   const [cart, setCart] = useState<CartItem[]>([
     {
       product: {
@@ -27,22 +29,50 @@ export default function App() {
 
   const [cartOpen, setCartOpen] = useState(false)
 
-  // Listen to hash changes for smooth deep-linking
+  // Sync route and clean up URL path (removing erroneous /hero or broken paths)
   useEffect(() => {
-    const handleHash = () => {
-      if (window.location.hash === "#faq") {
-        setCurrentPage("faq")
-      } else if (window.location.hash === "#contact") {
-        setCurrentPage("contact")
-      } else if (window.location.hash === "#testimonials") {
-        setCurrentPage("testimonials")
-      } else if (window.location.hash === "#hero" || !window.location.hash) {
-        setCurrentPage("home")
+    const syncRouteFromUrl = () => {
+      const rawPath = window.location.pathname.toLowerCase().replace(/^\/+|\/+$/g, "")
+      const rawHash = window.location.hash.toLowerCase().replace(/^#+/, "")
+
+      let targetPage: Page = "home"
+      if (rawPath === "faq" || rawHash === "faq") {
+        targetPage = "faq"
+      } else if (
+        rawPath === "contact" ||
+        rawPath === "contact-us" ||
+        rawHash === "contact" ||
+        rawHash === "contact-us"
+      ) {
+        targetPage = "contact"
+      } else if (
+        rawPath === "testimonials" ||
+        rawPath === "testimonial" ||
+        rawHash === "testimonials" ||
+        rawHash === "testimonial"
+      ) {
+        targetPage = "testimonials"
+      }
+
+      setCurrentPage(targetPage)
+
+      // Clean URL: Strip any unwanted /hero path and standardize clean URL
+      const cleanUrl = targetPage === "home" ? "/" : `/#${targetPage}`
+      if (
+        window.location.pathname !== "/" ||
+        (targetPage === "home" && (window.location.hash === "#hero" || window.location.hash === ""))
+      ) {
+        window.history.replaceState(null, "", cleanUrl)
       }
     }
-    handleHash()
-    window.addEventListener("hashchange", handleHash)
-    return () => window.removeEventListener("hashchange", handleHash)
+
+    syncRouteFromUrl()
+    window.addEventListener("hashchange", syncRouteFromUrl)
+    window.addEventListener("popstate", syncRouteFromUrl)
+    return () => {
+      window.removeEventListener("hashchange", syncRouteFromUrl)
+      window.removeEventListener("popstate", syncRouteFromUrl)
+    }
   }, [])
 
   const handleAddToCart = (product: ProductItem) => {
@@ -69,19 +99,19 @@ export default function App() {
 
   const handleNavigateHome = () => {
     setCurrentPage("home")
-    window.location.hash = "#hero"
+    window.history.pushState(null, "", "/")
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
   const handleNavigateFaq = () => {
     setCurrentPage("faq")
-    window.location.hash = "#faq"
+    window.history.pushState(null, "", "/#faq")
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
   const handleOrderNow = () => {
     setCurrentPage("home")
-    window.location.hash = "#purchase"
+    window.history.pushState(null, "", "/#purchase")
     setTimeout(() => {
       const el = document.querySelector("#purchase")
       if (el) el.scrollIntoView({ behavior: "smooth" })
@@ -93,11 +123,11 @@ export default function App() {
   return (
     <div className="min-h-screen bg-white text-zinc-900 font-sans flex flex-col justify-between selection:bg-red-100 selection:text-red-900">
       {/* Official Header / Navbar */}
-      <WhiteNavbar
+      <Navbar
         cartCount={totalCartCount}
         onOpenCart={() => setCartOpen(true)}
         currentPage={currentPage}
-        onNavigate={(page) => setCurrentPage(page as "home" | "faq" | "contact" | "testimonials")}
+        onNavigate={(page) => setCurrentPage(page as Page)}
       />
 
       {/* Dedicated Page Views: Toggle between HomePage, FaqPage, ContactUsPage, and TestimonialsPage */}
@@ -124,8 +154,8 @@ export default function App() {
       )}
 
       {/* Official Footer */}
-      <WhiteFooter
-        onNavigate={(page) => setCurrentPage(page as "home" | "faq" | "contact" | "testimonials")}
+      <Footer
+        onNavigate={(page) => setCurrentPage(page as Page)}
       />
 
       {/* Sliding Slide-over Cart Drawer */}

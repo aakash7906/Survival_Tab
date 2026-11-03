@@ -1,38 +1,41 @@
 import { Phone, Mail, ArrowUp } from "lucide-react"
 import { FacebookIcon, TwitterIcon, LinkedinIcon, YoutubeIcon } from "./ui/SocialIcons"
 
-interface WhiteFooterProps {
+interface FooterProps {
   onNavigate?: (page: string) => void
 }
 
-export function WhiteFooter({ onNavigate }: WhiteFooterProps) {
+export function Footer({ onNavigate }: FooterProps) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
   const handleNav = (href: string, page = "home") => {
     onNavigate?.(page)
-    if (page === "faq" || href === "#faq") {
-      window.location.hash = "#faq"
+    if (page === "faq" || href === "faq") {
+      window.history.pushState(null, "", "/faq")
       window.scrollTo({ top: 0, behavior: "smooth" })
       return
     }
-    if (page === "testimonials" || href === "#testimonials") {
+    if (page === "testimonials" || href === "testimonials") {
       onNavigate?.("testimonials")
-      window.location.hash = "#testimonials"
+      window.history.pushState(null, "", "/testimonials")
       window.scrollTo({ top: 0, behavior: "smooth" })
       return
     }
-    if (page === "contact" || href === "#contact") {
+    if (page === "contact" || href === "contact") {
       onNavigate?.("contact")
-      window.location.hash = "#contact"
+      window.history.pushState(null, "", "/contact")
       window.scrollTo({ top: 0, behavior: "smooth" })
       return
     }
-    if (href === "#hero") {
-      window.location.hash = "#hero"
+    if (href === "hero" || href === "/" || page === "home") {
+      window.history.pushState(null, "", "/")
       window.scrollTo({ top: 0, behavior: "smooth" })
       return
+    }
+    if (href === "purchase") {
+      window.history.pushState(null, "", "/purchase")
     }
     setTimeout(() => {
       const el = document.querySelector(href)
@@ -189,4 +192,4 @@ export function WhiteFooter({ onNavigate }: WhiteFooterProps) {
   )
 }
 
-export { WhiteFooter as Footer }
+export default Footer;

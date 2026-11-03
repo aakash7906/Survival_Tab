@@ -1,8 +1,8 @@
 import { Clock, ShieldCheck, Truck } from "lucide-react"
 
-export function WhiteHero() {
+export function Hero() {
   const scrollToPurchase = () => {
-    const el = document.querySelector("#purchase")
+    const el = document.querySelector("purchase")
     if (el) el.scrollIntoView({ behavior: "smooth" })
   }
 
@@ -95,5 +95,4 @@ export function WhiteHero() {
   )
 }
 
-export { WhiteHero as Hero }
-
+export default Hero;

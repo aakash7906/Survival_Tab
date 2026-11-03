@@ -8,48 +8,48 @@ interface NavLinkItem {
   badge?: string
 }
 
-interface WhiteNavbarProps {
+interface NavbarProps {
   cartCount?: number
   onOpenCart?: () => void
   currentPage?: string
   onNavigate?: (page: string) => void
 }
 
-export function WhiteNavbar({
+export function Navbar({
   cartCount = 0,
   onOpenCart,
   currentPage = "home",
   onNavigate,
-}: WhiteNavbarProps) {
+}: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const navLinks: NavLinkItem[] = [
-    { label: "Home", href: "#hero" },
-    { label: "FAQ", href: "#faq" },
-    { label: "Testimonials", href: "#testimonials" },
-    { label: "Contact Us", href: "#contact" },
+    { label: "Home", href: "/" },
+    { label: "FAQ", href: "faq" },
+    { label: "Testimonials", href: "testimonials" },
+    { label: "Contact Us", href: "contact" },
   ]
 
   const scrollTo = (href: string) => {
     setMobileOpen(false)
 
-    if (href === "#faq") {
+    if (href === "faq") {
       onNavigate?.("faq")
-      window.location.hash = "#faq"
+      window.history.pushState(null, "", "/faq")
       window.scrollTo({ top: 0, behavior: "smooth" })
       return
     }
 
-    if (href === "#testimonials") {
+    if (href === "testimonials") {
       onNavigate?.("testimonials")
-      window.location.hash = "#testimonials"
+      window.history.pushState(null, "", "/testimonials")
       window.scrollTo({ top: 0, behavior: "smooth" })
       return
     }
 
-    if (href === "#contact") {
+    if (href === "contact") {
       onNavigate?.("contact")
-      window.location.hash = "#contact"
+      window.history.pushState(null, "", "/contact")
       window.scrollTo({ top: 0, behavior: "smooth" })
       return
     }
@@ -58,10 +58,14 @@ export function WhiteNavbar({
       onNavigate?.("home")
     }
 
-    if (href === "#hero") {
-      window.location.hash = "#hero"
+    if (href === "hero" || href === "/") {
+      window.history.pushState(null, "", "/")
       window.scrollTo({ top: 0, behavior: "smooth" })
       return
+    }
+
+    if (href === "purchase") {
+      window.history.pushState(null, "", "/purchase")
     }
 
     setTimeout(() => {
@@ -87,10 +91,10 @@ export function WhiteNavbar({
         
         {/* Brand Logo */}
         <a
-          href="#hero"
+          href="/"
           onClick={(e) => {
             e.preventDefault()
-            scrollTo("#hero")
+            scrollTo("/")
           }}
           className="shrink-0 transition-opacity hover:opacity-90"
         >
@@ -100,10 +104,12 @@ export function WhiteNavbar({
         {/* Desktop Navigation Links (Visible on lg and larger screens) */}
         <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
           {navLinks.map((link) => {
+            const isHomeActive = link.href === "/" && currentPage === "home"
             const isFaqActive = link.href === "#faq" && currentPage === "faq"
-            const isContactActive = link.href === "#contact" && currentPage === "contact"
             const isTestimonialsActive = link.href === "#testimonials" && currentPage === "testimonials"
-            const isActive = isFaqActive || isContactActive || isTestimonialsActive
+            const isContactActive = link.href === "#contact" && currentPage === "contact"
+            const isActive = isHomeActive || isFaqActive || isTestimonialsActive || isContactActive
+
             return (
               <a
                 key={link.label}
@@ -112,7 +118,7 @@ export function WhiteNavbar({
                   e.preventDefault()
                   scrollTo(link.href)
                 }}
-                className={`rounded-lg px-3 py-2 text-xs xl:text-sm font-medium transition-colors ${
+                className={`rounded-lg px-3.5 py-2 text-xs xl:text-sm font-medium transition-colors ${
                   isActive
                     ? "text-red-600 bg-red-50 font-semibold"
                     : "text-zinc-700 hover:text-red-600 hover:bg-zinc-100"
@@ -186,10 +192,12 @@ export function WhiteNavbar({
             {/* Mobile Nav Links */}
             <div className="space-y-1">
               {navLinks.map((link) => {
+                const isHomeActive = link.href === "/" && currentPage === "home"
                 const isFaqActive = link.href === "#faq" && currentPage === "faq"
-                const isContactActive = link.href === "#contact" && currentPage === "contact"
                 const isTestimonialsActive = link.href === "#testimonials" && currentPage === "testimonials"
-                const isActive = isFaqActive || isContactActive || isTestimonialsActive
+                const isContactActive = link.href === "#contact" && currentPage === "contact"
+                const isActive = isHomeActive || isFaqActive || isTestimonialsActive || isContactActive
+
                 return (
                   <a
                     key={link.label}
@@ -249,4 +257,4 @@ export function WhiteNavbar({
   )
 }
 
-export { WhiteNavbar as Navbar }
+export default Navbar;
