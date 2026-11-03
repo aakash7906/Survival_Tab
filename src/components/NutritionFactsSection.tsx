@@ -2,7 +2,7 @@ export function NutritionFactsSection() {
   return (
     <section
       id="nutrition"
-      className="relative w-full rounded-3xl bg-white border border-slate-200 p-6 sm:p-10 lg:p-14 shadow-sm overflow-hidden my-8"
+      className="relative w-full rounded-2xl sm:rounded-3xl bg-white border border-slate-200 p-4 sm:p-8 lg:p-14 shadow-sm overflow-hidden my-6 sm:my-8"
     >
       {/* Subtle Winter Mountain / Cabin Background Silhouette matching official spec graphic */}
       <div
@@ -35,10 +35,10 @@ export function NutritionFactsSection() {
         </svg>
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto space-y-8 font-sans">
+      <div className="relative z-10 max-w-5xl mx-auto space-y-6 sm:space-y-8 font-sans">
         {/* Main Headline */}
-        <div className="text-center space-y-3">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-zinc-900">
+        <div className="text-center space-y-2 sm:space-y-3">
+          <h2 className="text-2xl min-[400px]:text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-zinc-900 leading-tight">
             DELICIOUS! NUTRITIOUS! EASY TO STORE!
           </h2>
           <p className="text-xs sm:text-[13px] text-zinc-700 leading-relaxed max-w-4xl mx-auto pt-1 font-normal">
@@ -47,14 +47,14 @@ export function NutritionFactsSection() {
         </div>
 
         {/* Nutrition Facts Heading */}
-        <div className="text-center pt-2">
-          <h3 className="text-2xl sm:text-3xl font-black text-zinc-900 tracking-tight">
+        <div className="text-center pt-1 sm:pt-2">
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-zinc-900 tracking-tight">
             Nutrition Facts
           </h3>
         </div>
 
         {/* Official 2-Column Nutrition Facts Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-14 text-sm text-zinc-800 border-t border-b border-zinc-200 py-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-14 text-sm text-zinc-800 border-t border-b border-zinc-200 py-5 sm:py-6">
           
           {/* Left Column: Macronutrients and Daily Values */}
           <div className="space-y-1.5 divide-y divide-zinc-200/80">
@@ -121,7 +121,7 @@ export function NutritionFactsSection() {
           </div>
 
           {/* Right Column: Vitamins & Minerals (2-subcolumns) */}
-          <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-xs sm:text-sm self-start">
+          <div className="grid grid-cols-1 min-[420px]:grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-2 text-xs sm:text-sm self-start">
             
             {/* Sub-column 1 */}
             <div className="space-y-2">

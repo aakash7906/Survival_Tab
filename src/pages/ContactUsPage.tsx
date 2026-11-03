@@ -54,33 +54,33 @@ export function ContactUsPage({ onNavigateHome, onNavigateFaq }: ContactUsPagePr
       </nav>
 
       {/* Header Banner */}
-      <div className="relative rounded-3xl bg-white border border-zinc-200 p-8 sm:p-12 lg:p-14 shadow-xs overflow-hidden text-center space-y-4">
-        <div className="inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-200 px-3.5 py-1 text-xs font-bold text-red-700 tracking-wider uppercase">
-          <MessageSquare className="h-3.5 w-3.5 text-red-600" />
+      <div className="relative rounded-2xl sm:rounded-3xl bg-white border border-zinc-200 p-6 sm:p-10 lg:p-14 shadow-xs overflow-hidden text-center space-y-3 sm:space-y-4">
+        <div className="inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-200 px-3 sm:px-3.5 py-1 text-[11px] sm:text-xs font-bold text-red-700 tracking-wider uppercase">
+          <MessageSquare className="h-3.5 w-3.5 text-red-600 shrink-0" />
           <span>DIRECT CUSTOMER &bull; WHOLESALE SUPPORT</span>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-zinc-900 max-w-3xl mx-auto">
+        <h1 className="text-2xl min-[400px]:text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-zinc-900 max-w-3xl mx-auto leading-tight">
           Contact The Survival Tabs
         </h1>
 
-        <p className="text-sm sm:text-base text-zinc-600 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-xs sm:text-sm md:text-base text-zinc-600 max-w-2xl mx-auto leading-relaxed">
           Have questions about personal emergency readiness, ration orders, shelf life verification,
           or bulk distributor pricing? Our US-based team is ready to assist you.
         </p>
 
         {/* Rapid Highlights */}
-        <div className="pt-2 flex flex-wrap items-center justify-center gap-3 text-xs font-medium text-zinc-700">
+        <div className="pt-2 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-[11px] sm:text-xs font-medium text-zinc-700">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-50 border border-zinc-200">
-            <Clock className="h-3.5 w-3.5 text-amber-600" />
+            <Clock className="h-3.5 w-3.5 text-amber-600 shrink-0" />
             <span>Fast 24-Hour Business Response</span>
           </div>
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-50 border border-zinc-200">
-            <Building2 className="h-3.5 w-3.5 text-emerald-600" />
+            <Building2 className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
             <span>Government &amp; Bulk Quotes Available</span>
           </div>
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-50 border border-zinc-200">
-            <ShieldCheck className="h-3.5 w-3.5 text-red-600" />
+            <ShieldCheck className="h-3.5 w-3.5 text-red-600 shrink-0" />
             <span>100% Made in the USA Guarantee</span>
           </div>
         </div>
@@ -93,7 +93,7 @@ export function ContactUsPage({ onNavigateHome, onNavigateFaq }: ContactUsPagePr
         <div className="lg:col-span-5 space-y-6">
           
           {/* Contact Methods Card */}
-          <div className="rounded-3xl bg-white border border-zinc-200 p-6 sm:p-8 shadow-xs space-y-6">
+          <div className="rounded-2xl sm:rounded-3xl bg-white border border-zinc-200 p-5 sm:p-8 shadow-xs space-y-6">
             <h2 className="text-lg font-bold text-zinc-900 uppercase tracking-wide border-b border-zinc-100 pb-3">
               Direct Channels
             </h2>
@@ -202,7 +202,7 @@ export function ContactUsPage({ onNavigateHome, onNavigateFaq }: ContactUsPagePr
 
         {/* Right Column: Contact Message Form */}
         <div className="lg:col-span-7">
-          <div className="rounded-3xl bg-white border border-zinc-200 p-6 sm:p-10 shadow-xs space-y-6">
+          <div className="rounded-2xl sm:rounded-3xl bg-white border border-zinc-200 p-5 sm:p-8 lg:p-10 shadow-xs space-y-6">
             
             <div className="border-b border-zinc-100 pb-4 space-y-1">
               <h2 className="text-xl font-bold text-zinc-900 uppercase tracking-tight">

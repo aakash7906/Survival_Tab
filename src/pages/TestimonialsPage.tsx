@@ -147,62 +147,62 @@ export function TestimonialsPage({ onNavigateHome, onOrderNow }: TestimonialsPag
       </nav>
 
       {/* Header Banner */}
-      <div className="relative rounded-3xl bg-white border border-zinc-200 p-8 sm:p-12 lg:p-14 shadow-xs overflow-hidden text-center space-y-5">
-        <div className="inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-200 px-3.5 py-1 text-xs font-bold text-red-700 tracking-wider uppercase">
-          <Award className="h-3.5 w-3.5 text-red-600" />
+      <div className="relative rounded-2xl sm:rounded-3xl bg-white border border-zinc-200 p-6 sm:p-10 lg:p-14 shadow-xs overflow-hidden text-center space-y-4 sm:space-y-5">
+        <div className="inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-200 px-3 sm:px-3.5 py-1 text-[11px] sm:text-xs font-bold text-red-700 tracking-wider uppercase">
+          <Award className="h-3.5 w-3.5 text-red-600 shrink-0" />
           <span>VERIFIED CUSTOMER REVIEWS &bull; 4.9 / 5.0 RATING</span>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-zinc-900 max-w-3xl mx-auto">
+        <h1 className="text-2xl min-[400px]:text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-zinc-900 max-w-3xl mx-auto leading-tight">
           Trusted in the Field for Over 40 Years
         </h1>
 
-        <p className="text-sm sm:text-base text-zinc-600 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-xs sm:text-sm md:text-base text-zinc-600 max-w-2xl mx-auto leading-relaxed">
           Read genuine field reports from wilderness adventurers, search-and-rescue teams,
           survivalists, and families across America who rely on The Survival Tabs.
         </p>
 
         {/* Rating & Metric Snapshot */}
-        <div className="pt-4 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
+        <div className="pt-2 sm:pt-4 grid grid-cols-1 min-[340px]:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto text-left">
 
-          <div className="rounded-2xl bg-zinc-50 border border-zinc-200 p-4 space-y-1 text-center">
+          <div className="rounded-2xl bg-zinc-50 border border-zinc-200 p-3.5 sm:p-4 space-y-1 text-center">
             <div className="flex items-center justify-center gap-1 text-amber-500">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
+                <Star key={i} className="h-3.5 sm:h-4 w-3.5 sm:w-4 fill-amber-400 text-amber-400" />
               ))}
             </div>
-            <div className="text-2xl font-black text-zinc-900">4.9 / 5.0</div>
-            <span className="text-[11px] text-zinc-500 font-medium">Over 2,400+ Verified Reviews</span>
+            <div className="text-xl sm:text-2xl font-black text-zinc-900">4.9 / 5.0</div>
+            <span className="text-[10px] sm:text-[11px] text-zinc-500 font-medium">Over 2,400+ Verified Reviews</span>
           </div>
 
-          <div className="rounded-2xl bg-zinc-50 border border-zinc-200 p-4 space-y-1 text-center">
-            <div className="text-2xl font-black text-zinc-900">25 Years</div>
-            <div className="text-xs font-bold text-emerald-700 uppercase">Certified Shelf Life</div>
-            <span className="text-[11px] text-zinc-500 font-medium">Nitrogen vacuum sealed</span>
+          <div className="rounded-2xl bg-zinc-50 border border-zinc-200 p-3.5 sm:p-4 space-y-1 text-center">
+            <div className="text-xl sm:text-2xl font-black text-zinc-900">25 Years</div>
+            <div className="text-[11px] sm:text-xs font-bold text-emerald-700 uppercase">Certified Shelf Life</div>
+            <span className="text-[10px] sm:text-[11px] text-zinc-500 font-medium">Nitrogen vacuum sealed</span>
           </div>
 
-          <div className="rounded-2xl bg-zinc-50 border border-zinc-200 p-4 space-y-1 text-center">
-            <div className="text-2xl font-black text-zinc-900">99%</div>
-            <div className="text-xs font-bold text-red-700 uppercase">Bio-Availability</div>
-            <span className="text-[11px] text-zinc-500 font-medium">Instant cellular absorption</span>
+          <div className="rounded-2xl bg-zinc-50 border border-zinc-200 p-3.5 sm:p-4 space-y-1 text-center">
+            <div className="text-xl sm:text-2xl font-black text-zinc-900">99%</div>
+            <div className="text-[11px] sm:text-xs font-bold text-red-700 uppercase">Bio-Availability</div>
+            <span className="text-[10px] sm:text-[11px] text-zinc-500 font-medium">Instant cellular absorption</span>
           </div>
 
-          <div className="rounded-2xl bg-zinc-50 border border-zinc-200 p-4 space-y-1 text-center">
-            <div className="text-2xl font-black text-zinc-900">100%</div>
-            <div className="text-xs font-bold text-zinc-800 uppercase">Made in the USA</div>
-            <span className="text-[11px] text-zinc-500 font-medium">cGMP certified quality</span>
+          <div className="rounded-2xl bg-zinc-50 border border-zinc-200 p-3.5 sm:p-4 space-y-1 text-center">
+            <div className="text-xl sm:text-2xl font-black text-zinc-900">100%</div>
+            <div className="text-[11px] sm:text-xs font-bold text-zinc-800 uppercase">Made in the USA</div>
+            <span className="text-[10px] sm:text-[11px] text-zinc-500 font-medium">cGMP certified quality</span>
           </div>
 
         </div>
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
+      <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 pt-1 sm:pt-2">
         {filterTabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveFilter(tab.id)}
-            className={`px-4 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer ${activeFilter === tab.id
+            className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-semibold transition-all cursor-pointer ${activeFilter === tab.id
                 ? "bg-zinc-900 text-white shadow-xs"
                 : "bg-white text-zinc-600 border border-zinc-200 hover:bg-zinc-50 hover:text-zinc-900"
               }`}
@@ -213,11 +213,11 @@ export function TestimonialsPage({ onNavigateHome, onOrderNow }: TestimonialsPag
       </div>
 
       {/* Testimonials Masonry / Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {filteredReviews.map((review) => (
           <div
             key={review.id}
-            className="flex flex-col justify-between rounded-3xl bg-white border border-zinc-200 p-6 sm:p-7 shadow-xs hover:border-red-200 hover:shadow-md transition-all space-y-5"
+            className="flex flex-col justify-between rounded-2xl sm:rounded-3xl bg-white border border-zinc-200 p-5 sm:p-7 shadow-xs hover:border-red-200 hover:shadow-md transition-all space-y-4 sm:space-y-5"
           >
             {/* Header: Stars & Flavor Tag */}
             <div className="space-y-3">

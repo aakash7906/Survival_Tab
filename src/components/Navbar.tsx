@@ -104,10 +104,10 @@ export function Navbar({
         {/* Desktop Navigation Links (Visible on lg and larger screens) */}
         <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
           {navLinks.map((link) => {
-            const isHomeActive = link.href === "/" && currentPage === "home"
-            const isFaqActive = link.href === "#faq" && currentPage === "faq"
-            const isTestimonialsActive = link.href === "#testimonials" && currentPage === "testimonials"
-            const isContactActive = link.href === "#contact" && currentPage === "contact"
+            const isHomeActive = (link.href === "/" || link.href === "hero" || link.href === "#hero") && currentPage === "home"
+            const isFaqActive = (link.href === "faq" || link.href === "#faq") && currentPage === "faq"
+            const isTestimonialsActive = (link.href === "testimonials" || link.href === "#testimonials") && currentPage === "testimonials"
+            const isContactActive = (link.href === "contact" || link.href === "#contact") && currentPage === "contact"
             const isActive = isHomeActive || isFaqActive || isTestimonialsActive || isContactActive
 
             return (
@@ -192,10 +192,10 @@ export function Navbar({
             {/* Mobile Nav Links */}
             <div className="space-y-1">
               {navLinks.map((link) => {
-                const isHomeActive = link.href === "/" && currentPage === "home"
-                const isFaqActive = link.href === "#faq" && currentPage === "faq"
-                const isTestimonialsActive = link.href === "#testimonials" && currentPage === "testimonials"
-                const isContactActive = link.href === "#contact" && currentPage === "contact"
+                const isHomeActive = (link.href === "/" || link.href === "hero" || link.href === "#hero") && currentPage === "home"
+                const isFaqActive = (link.href === "faq" || link.href === "#faq") && currentPage === "faq"
+                const isTestimonialsActive = (link.href === "testimonials" || link.href === "#testimonials") && currentPage === "testimonials"
+                const isContactActive = (link.href === "contact" || link.href === "#contact") && currentPage === "contact"
                 const isActive = isHomeActive || isFaqActive || isTestimonialsActive || isContactActive
 
                 return (

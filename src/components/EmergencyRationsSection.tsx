@@ -7,30 +7,30 @@ export function EmergencyRationsSection() {
         
         {/* Full-Width Expanded Section Header - Spans across image and content */}
         <div className="space-y-2 text-left">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-zinc-900 uppercase">
+          <h2 className="text-2xl min-[400px]:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-zinc-900 uppercase">
             EMERGENCY FOOD RATIONS
           </h2>
-          <p className="text-base sm:text-lg text-zinc-800 font-semibold leading-snug max-w-4xl">
+          <p className="text-sm sm:text-base lg:text-lg text-zinc-800 font-semibold leading-snug max-w-4xl">
             The Survival Tabs reliable backup for the &ldquo;drop-everything-and-go&rdquo; scenario.
           </p>
         </div>
 
         {/* 2-Column Content Layout Below the Expanded Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-stretch">
           
           {/* Left Column: Made in the USA Official Emblem Showcase */}
           <div className="lg:col-span-5 h-full flex flex-col">
-            <div className="relative w-full h-full min-h-[320px] sm:min-h-[380px] lg:min-h-full flex flex-col items-center justify-center p-6 sm:p-8 rounded-3xl bg-zinc-50 border border-zinc-200/90 shadow-sm group hover:border-red-200 transition-all duration-300">
+            <div className="relative w-full h-full min-h-[260px] sm:min-h-[340px] lg:min-h-full flex flex-col items-center justify-center p-5 sm:p-8 rounded-3xl bg-zinc-50 border border-zinc-200/90 shadow-sm group hover:border-red-200 transition-all duration-300">
               
               {/* Subtle Ambient Radial Highlight */}
               <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-transparent to-zinc-100/50 rounded-3xl pointer-events-none" />
 
               {/* Large Made In USA Emblem */}
-              <div className="relative z-10 w-full flex items-center justify-center my-auto py-4">
+              <div className="relative z-10 w-full flex items-center justify-center my-auto py-3 sm:py-4">
                 <img
                   src="/images/made-in-usa.png"
                   alt="Made in the USA - The Survival Tabs Certified Standard"
-                  className="w-full max-w-[340px] sm:max-w-[400px] lg:max-w-[440px] h-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300"
+                  className="w-full max-w-[280px] min-[400px]:max-w-[320px] sm:max-w-[380px] lg:max-w-[440px] h-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
 

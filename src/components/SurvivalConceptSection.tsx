@@ -15,6 +15,7 @@ export function SurvivalConceptSection() {
         <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-zinc-200 aspect-video bg-transparent">
           <video
             src="/videos/survival-concept.mp4"
+            poster="/images/video_thumbnail.png"
             controls
             playsInline
             preload="metadata"

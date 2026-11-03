@@ -306,26 +306,26 @@ export function FaqPage({ onNavigateHome }: FaqPageProps) {
       </nav>
 
       {/* Header Banner */}
-      <div className="relative rounded-3xl bg-white border border-zinc-200 p-8 sm:p-12 lg:p-14 shadow-xs overflow-hidden text-center space-y-5">  
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-zinc-900 max-w-3xl mx-auto">
+      <div className="relative rounded-2xl sm:rounded-3xl bg-white border border-zinc-200 p-6 sm:p-10 lg:p-14 shadow-xs overflow-hidden text-center space-y-4 sm:space-y-5">  
+        <h1 className="text-2xl min-[400px]:text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-zinc-900 max-w-3xl mx-auto leading-tight">
           Frequently Asked Questions
         </h1>
 
-        <p className="text-sm sm:text-base text-zinc-600 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-xs sm:text-sm md:text-base text-zinc-600 max-w-2xl mx-auto leading-relaxed">
           Everything you need to know about The Survival Tabs: nutrition, 25-year shelf life,
           daily consumption protocols, bio-availability, and emergency preparedness.
         </p>
 
         {/* Search Bar */}
-        <div className="max-w-xl mx-auto pt-4">
+        <div className="max-w-xl mx-auto pt-2 sm:pt-4">
           <div className="relative">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-400" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search questions (e.g. shelf life, calories, weight loss, storage)..."
-              className="w-full pl-11 pr-4 py-3 text-sm rounded-full bg-zinc-50 border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-600/20 focus:border-red-600 transition-all shadow-xs"
+              placeholder="Search questions (e.g. shelf life, calories, storage)..."
+              className="w-full pl-11 pr-4 py-2.5 sm:py-3 text-xs sm:text-sm rounded-full bg-zinc-50 border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-600/20 focus:border-red-600 transition-all shadow-xs"
             />
             {searchQuery && (
               <button

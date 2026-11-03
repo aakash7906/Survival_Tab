@@ -44,11 +44,11 @@ export function Footer({ onNavigate }: FooterProps) {
   }
 
   return (
-    <footer id="contact" className="w-full bg-[#FFFFFF] border-t border-slate-200 mt-16 pt-14 pb-8 text-slate-700">
-      <div className="max-w-[1600px] mx-auto px-6 sm:px-12 space-y-12">
+    <footer id="contact" className="w-full bg-[#FFFFFF] border-t border-slate-200 mt-12 sm:mt-16 pt-10 sm:pt-14 pb-8 text-slate-700">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 space-y-10 sm:space-y-12">
 
         {/* Main Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10">
 
           {/* Brand Column */}
           <div className="lg:col-span-4 space-y-4">
@@ -171,7 +171,7 @@ export function Footer({ onNavigate }: FooterProps) {
         </div>
 
         {/* Back to top button & copyright */}
-        <div className="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="pt-6 sm:pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 text-center sm:text-left">
           <div>
             &copy; 2026 SurvivalTabs&reg;. All Rights Reserved. Pure Light Theme Architecture.
           </div>
