@@ -25,6 +25,7 @@ export function Navbar({
 
   const navLinks: NavLinkItem[] = [
     { label: "Home", href: "/" },
+    { label: "About", href: "about" },
     { label: "FAQ", href: "faq" },
     { label: "Testimonials", href: "testimonials" },
     { label: "Contact Us", href: "contact" },
@@ -32,6 +33,13 @@ export function Navbar({
 
   const scrollTo = (href: string) => {
     setMobileOpen(false)
+
+    if (href === "about") {
+      onNavigate?.("about")
+      window.history.pushState(null, "", "/about")
+      window.scrollTo({ top: 0, behavior: "smooth" })
+      return
+    }
 
     if (href === "faq") {
       onNavigate?.("faq")
@@ -105,10 +113,11 @@ export function Navbar({
         <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
           {navLinks.map((link) => {
             const isHomeActive = (link.href === "/" || link.href === "hero" || link.href === "#hero") && currentPage === "home"
+            const isAboutActive = (link.href === "about" || link.href === "#about") && currentPage === "about"
             const isFaqActive = (link.href === "faq" || link.href === "#faq") && currentPage === "faq"
             const isTestimonialsActive = (link.href === "testimonials" || link.href === "#testimonials") && currentPage === "testimonials"
             const isContactActive = (link.href === "contact" || link.href === "#contact") && currentPage === "contact"
-            const isActive = isHomeActive || isFaqActive || isTestimonialsActive || isContactActive
+            const isActive = isHomeActive || isAboutActive || isFaqActive || isTestimonialsActive || isContactActive
 
             return (
               <a
@@ -193,10 +202,11 @@ export function Navbar({
             <div className="space-y-1">
               {navLinks.map((link) => {
                 const isHomeActive = (link.href === "/" || link.href === "hero" || link.href === "#hero") && currentPage === "home"
+                const isAboutActive = (link.href === "about" || link.href === "#about") && currentPage === "about"
                 const isFaqActive = (link.href === "faq" || link.href === "#faq") && currentPage === "faq"
                 const isTestimonialsActive = (link.href === "testimonials" || link.href === "#testimonials") && currentPage === "testimonials"
                 const isContactActive = (link.href === "contact" || link.href === "#contact") && currentPage === "contact"
-                const isActive = isHomeActive || isFaqActive || isTestimonialsActive || isContactActive
+                const isActive = isHomeActive || isAboutActive || isFaqActive || isTestimonialsActive || isContactActive
 
                 return (
                   <a

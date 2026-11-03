@@ -1,5 +1,5 @@
 import { Phone, Mail, ArrowUp } from "lucide-react"
-import { FacebookIcon, TwitterIcon, LinkedinIcon, YoutubeIcon } from "./ui/SocialIcons"
+import { FacebookIcon, TwitterIcon, LinkedinIcon, YoutubeIcon, InstagramIcon } from "./ui/SocialIcons"
 
 interface FooterProps {
   onNavigate?: (page: string) => void
@@ -12,6 +12,62 @@ export function Footer({ onNavigate }: FooterProps) {
 
   const handleNav = (href: string, page = "home") => {
     onNavigate?.(page)
+    if (page === "about" || href === "about") {
+      onNavigate?.("about")
+      window.history.pushState(null, "", "/about")
+      window.scrollTo({ top: 0, behavior: "smooth" })
+      return
+    }
+    if (page === "privacy" || href === "privacy") {
+      onNavigate?.("privacy")
+      window.history.pushState(null, "", "/privacy-policy")
+      window.scrollTo({ top: 0, behavior: "smooth" })
+      return
+    }
+    if (page === "terms" || href === "terms") {
+      onNavigate?.("terms")
+      window.history.pushState(null, "", "/terms-and-conditions")
+      window.scrollTo({ top: 0, behavior: "smooth" })
+      return
+    }
+    if (page === "make-money" || href.startsWith("make-money")) {
+      onNavigate?.("make-money")
+      const hash = href.includes("#") ? href.substring(href.indexOf("#")) : ""
+      window.history.pushState(null, "", `/make-money${hash}`)
+      if (hash) {
+        setTimeout(() => {
+          const el = document.querySelector(hash)
+          if (el) el.scrollIntoView({ behavior: "smooth" })
+        }, 80)
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" })
+      }
+      return
+    }
+    if (page === "wholesale" || href === "wholesale" || href === "wholesale-distributor") {
+      onNavigate?.("wholesale")
+      window.history.pushState(null, "", "/wholesale-distributor")
+      window.scrollTo({ top: 0, behavior: "smooth" })
+      return
+    }
+    if (page === "dropship" || href === "dropship" || href === "drop-shipping") {
+      onNavigate?.("dropship")
+      window.history.pushState(null, "", "/drop-shipping")
+      window.scrollTo({ top: 0, behavior: "smooth" })
+      return
+    }
+    if (page === "export" || href === "export" || href === "foreign-export") {
+      onNavigate?.("export")
+      window.history.pushState(null, "", "/foreign-export")
+      window.scrollTo({ top: 0, behavior: "smooth" })
+      return
+    }
+    if (page === "affiliate" || href === "affiliate" || href === "affiliate-program") {
+      onNavigate?.("affiliate")
+      window.history.pushState(null, "", "/affiliate-program")
+      window.scrollTo({ top: 0, behavior: "smooth" })
+      return
+    }
     if (page === "faq" || href === "faq") {
       window.history.pushState(null, "", "/faq")
       window.scrollTo({ top: 0, behavior: "smooth" })
@@ -59,18 +115,13 @@ export function Footer({ onNavigate }: FooterProps) {
                 className="h-9 w-auto object-contain"
               />
             </div>
-            <p className="text-xs text-slate-500 leading-relaxed max-w-sm">
-              The premier emergency food ration system engineered for disaster response, outdoor expeditions, and survivalist readiness. 25-Year certified shelf life.
-            </p>
-            <div className="pt-2">
-              <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 border border-emerald-200 px-3.5 py-1 text-xs font-bold text-emerald-800">
-                <img
-                  src="/images/made-in-usa.png"
-                  alt="Made in USA"
-                  className="h-4 w-auto object-contain"
-                />
-                <span>MADE IN THE USA GUARANTEE</span>
-              </div>
+            <div className="space-y-1.5 text-xs text-slate-600 leading-relaxed">
+              <p className="font-bold text-xs uppercase tracking-wider text-amber-600">
+                GOOD FOR YOU AMERICA
+              </p>
+              <p>110 S. Bismark Street</p>
+              <p>Concordia, Missouri, 64020</p>
+              <p>United States</p>
             </div>
           </div>
 
@@ -80,53 +131,75 @@ export function Footer({ onNavigate }: FooterProps) {
               COMPANY
             </h4>
             <ul className="space-y-2 text-xs text-slate-500">
-              <li><button onClick={() => handleNav("#hero", "home")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">Overview</button></li>
-              <li><button onClick={() => handleNav("#emergency", "home")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">Features</button></li>
-              <li><button onClick={() => handleNav("#concept", "home")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">System Matrix</button></li>
-              <li><button onClick={() => handleNav("#purchase", "home")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">Ration Plans</button></li>
-              <li><button onClick={() => handleNav("#nutrition", "home")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">Nutrition Facts</button></li>
-              <li><button onClick={() => handleNav("#testimonials", "testimonials")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left font-semibold text-zinc-800">Testimonials</button></li>
-              <li><button onClick={() => handleNav("#faq", "faq")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left font-semibold text-zinc-800">FAQ</button></li>
-              <li><button onClick={() => handleNav("#contact", "contact")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left font-semibold text-zinc-800">Contact Us</button></li>
+              <li><button onClick={() => handleNav("about", "about")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">About</button></li>
+              <li><button onClick={() => handleNav("#purchase", "home")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">Products</button></li>
+              <li><button onClick={() => handleNav("#emergency", "home")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">News</button></li>
+              <li><button onClick={() => handleNav("privacy", "privacy")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">Privacy Policy</button></li>
+              <li><button onClick={() => handleNav("terms", "terms")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">Terms &amp; Conditions</button></li>
             </ul>
           </div>
 
-          {/* Retail & Wholesale */}
+          {/* Resell / Promote Column */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="font-bold text-xs uppercase tracking-wider text-slate-900">
-              RETAIL / WHOLESALE
+              RESELL / PROMOTE
             </h4>
             <ul className="space-y-2 text-xs text-slate-500">
-              <li><button onClick={() => handleNav("#purchase", "home")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">Authorized Distributors</button></li>
-              <li><button onClick={() => handleNav("#purchase", "home")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">Wholesale Opportunities</button></li>
-              <li><button onClick={() => handleNav("#purchase", "home")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">Affiliate Network</button></li>
-              <li><button onClick={() => handleNav("#purchase", "home")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">Order Tracking &amp; Status</button></li>
-              <li><button onClick={() => handleNav("#contact", "home")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">Government &amp; Bulk Quotes</button></li>
+              <li><button onClick={() => handleNav("make-money", "make-money")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">Make Money</button></li>
+              <li>
+                <button onClick={() => handleNav("wholesale", "wholesale")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left flex items-center gap-1.5">
+                  <span className="text-[9px] text-slate-500">▶</span>
+                  <span>Wholesale Distributor</span>
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav("dropship", "dropship")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left flex items-center gap-1.5">
+                  <span className="text-[9px] text-slate-500">▶</span>
+                  <span>Drop Shipping</span>
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav("export", "export")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left flex items-center gap-1.5">
+                  <span className="text-[9px] text-slate-500">▶</span>
+                  <span>Foreign Export</span>
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav("affiliate", "affiliate")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left flex items-center gap-1.5">
+                  <span className="text-[9px] text-slate-500">▶</span>
+                  <span>Affiliate Program</span>
+                </button>
+              </li>
             </ul>
           </div>
 
-          {/* Connect Column */}
-          <div className="lg:col-span-3 space-y-3">
-            <h4 className="font-bold text-xs uppercase tracking-wider text-slate-900">
-              CONNECT &bull; SUPPORT
-            </h4>
-            <div className="space-y-2 text-xs text-slate-600">
-              <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-emerald-600 shrink-0" />
-                <span>Toll Free: <strong className="text-slate-900">660-463-2158</strong></span>
+          {/* Contact Us & Follow Us Column */}
+          <div className="lg:col-span-3 space-y-4">
+            <div className="space-y-2">
+              <h4 className="font-bold text-xs uppercase tracking-wider text-slate-900">
+                Contact Us
+              </h4>
+              <div className="space-y-1.5 text-xs text-slate-600">
+                <div className="flex items-center gap-2">
+                  <Phone className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <a href="tel:800-944-1511" className="hover:text-emerald-600 transition-colors font-medium">
+                    800-944-1511
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <a href="mailto:Sales@FoodReserves.com" className="hover:text-emerald-600 transition-colors font-medium">
+                    Sales@FoodReserves.com
+                  </a>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-emerald-600 shrink-0" />
-                <a href="mailto:support@survivaltabs.com" className="hover:text-emerald-600 transition-colors">
-                  support@survivaltabs.com
-                </a>
-              </div>
-              <div className="text-[11px] text-slate-400 pt-1">
-                Hours: Monday &ndash; Friday, 8:00 AM &ndash; 5:00 PM PST
-              </div>
+            </div>
 
-              {/* Social media icons with authentic Lucide SVG icons */}
-              <div className="pt-3 flex items-center gap-2.5">
+            <div className="space-y-2 pt-1">
+              <h4 className="font-bold text-xs uppercase tracking-wider text-slate-900">
+                Follow Us
+              </h4>
+              <div className="flex items-center gap-2">
                 {[
                   {
                     name: "Facebook",
@@ -148,6 +221,11 @@ export function Footer({ onNavigate }: FooterProps) {
                     href: "https://www.youtube.com/@TheSurvivalTabs",
                     icon: YoutubeIcon,
                   },
+                  {
+                    name: "Instagram",
+                    href: "https://www.instagram.com/survivaltabs/",
+                    icon: InstagramIcon,
+                  },
                 ].map((item) => {
                   const Icon = item.icon
                   return (
@@ -156,7 +234,7 @@ export function Footer({ onNavigate }: FooterProps) {
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex h-9 w-9 items-center justify-center rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-emerald-50 hover:text-emerald-600 hover:border-emerald-300 transition-all cursor-pointer shadow-xs"
+                      className="group flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 hover:border-emerald-300 transition-all cursor-pointer"
                       title={item.name}
                       aria-label={item.name}
                     >
@@ -173,7 +251,7 @@ export function Footer({ onNavigate }: FooterProps) {
         {/* Back to top button & copyright */}
         <div className="pt-6 sm:pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 text-center sm:text-left">
           <div>
-            &copy; 2026 SurvivalTabs&reg;. All Rights Reserved. Pure Light Theme Architecture.
+            &copy; 2026 Survival Tabs
           </div>
 
           <div className="flex items-center gap-6">

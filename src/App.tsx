@@ -4,11 +4,31 @@ import { HomePage } from "./pages/HomePage"
 import { FaqPage } from "./pages/FaqPage"
 import { ContactUsPage } from "./pages/ContactUsPage"
 import { TestimonialsPage } from "./pages/TestimonialsPage"
+import { AboutPage } from "./pages/AboutPage"
+import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage"
+import { TermsPage } from "./pages/TermsPage"
+import { MakeMoneyPage } from "./pages/MakeMoneyPage"
+import { WholesaleDistributorPage } from "./pages/WholesaleDistributorPage"
+import { DropShippingPage } from "./pages/DropShippingPage"
+import { ForeignExportPage } from "./pages/ForeignExportPage"
+import { AffiliateProgramPage } from "./pages/AffiliateProgramPage"
 import { Footer } from "./components/Footer"
 import { CartDrawer, type CartItem } from "./components/CartDrawer"
 import type { ProductItem } from "./components/PurchaseSection"
 
-type Page = "home" | "faq" | "contact" | "testimonials"
+type Page =
+  | "home"
+  | "faq"
+  | "contact"
+  | "testimonials"
+  | "about"
+  | "privacy"
+  | "terms"
+  | "make-money"
+  | "wholesale"
+  | "dropship"
+  | "export"
+  | "affiliate"
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>("home")
@@ -45,6 +65,76 @@ export default function App() {
         rawHash === "contact-us"
       ) {
         targetPage = "contact"
+      } else if (
+        rawPath === "about" ||
+        rawPath === "about-us" ||
+        rawHash === "about" ||
+        rawHash === "about-us"
+      ) {
+        targetPage = "about"
+      } else if (
+        rawPath === "privacy" ||
+        rawPath === "privacy-policy" ||
+        rawHash === "privacy" ||
+        rawHash === "privacy-policy"
+      ) {
+        targetPage = "privacy"
+      } else if (
+        rawPath === "terms" ||
+        rawPath === "terms-and-conditions" ||
+        rawPath === "terms-conditions" ||
+        rawHash === "terms" ||
+        rawHash === "terms-and-conditions" ||
+        rawHash === "terms-conditions"
+      ) {
+        targetPage = "terms"
+      } else if (
+        rawPath === "make-money" ||
+        rawPath === "makemoney" ||
+        rawPath === "resell" ||
+        rawPath === "promote" ||
+        rawHash === "make-money" ||
+        rawHash === "makemoney" ||
+        rawHash === "resell" ||
+        rawHash === "promote"
+      ) {
+        targetPage = "make-money"
+      } else if (
+        rawPath === "wholesale" ||
+        rawPath === "wholesale-distributor" ||
+        rawPath === "distributor" ||
+        rawHash === "wholesale" ||
+        rawHash === "wholesale-distributor" ||
+        rawHash === "distributor"
+      ) {
+        targetPage = "wholesale"
+      } else if (
+        rawPath === "dropship" ||
+        rawPath === "drop-shipping" ||
+        rawPath === "dropshipping" ||
+        rawHash === "dropship" ||
+        rawHash === "drop-shipping" ||
+        rawHash === "dropshipping"
+      ) {
+        targetPage = "dropship"
+      } else if (
+        rawPath === "export" ||
+        rawPath === "foreign-export" ||
+        rawPath === "international" ||
+        rawHash === "export" ||
+        rawHash === "foreign-export" ||
+        rawHash === "international"
+      ) {
+        targetPage = "export"
+      } else if (
+        rawPath === "affiliate" ||
+        rawPath === "affiliate-program" ||
+        rawPath === "affiliates" ||
+        rawHash === "affiliate" ||
+        rawHash === "affiliate-program" ||
+        rawHash === "affiliates"
+      ) {
+        targetPage = "affiliate"
       } else if (
         rawPath === "testimonials" ||
         rawPath === "testimonial" ||
@@ -139,6 +229,110 @@ export default function App() {
         <ContactUsPage
           onNavigateHome={handleNavigateHome}
           onNavigateFaq={handleNavigateFaq}
+        />
+      )}
+
+      {currentPage === "about" && (
+        <AboutPage
+          onNavigateHome={handleNavigateHome}
+          onOrderNow={handleOrderNow}
+        />
+      )}
+
+      {currentPage === "privacy" && (
+        <PrivacyPolicyPage
+          onNavigateHome={handleNavigateHome}
+          onNavigateContact={() => {
+            setCurrentPage("contact")
+            window.history.pushState(null, "", "/#contact")
+            window.scrollTo({ top: 0, behavior: "smooth" })
+          }}
+        />
+      )}
+
+      {currentPage === "terms" && (
+        <TermsPage
+          onNavigateHome={handleNavigateHome}
+          onNavigateContact={() => {
+            setCurrentPage("contact")
+            window.history.pushState(null, "", "/#contact")
+            window.scrollTo({ top: 0, behavior: "smooth" })
+          }}
+        />
+      )}
+
+      {currentPage === "make-money" && (
+        <MakeMoneyPage
+          onNavigateHome={handleNavigateHome}
+          onNavigateContact={() => {
+            setCurrentPage("contact")
+            window.history.pushState(null, "", "/#contact")
+            window.scrollTo({ top: 0, behavior: "smooth" })
+          }}
+        />
+      )}
+
+      {currentPage === "wholesale" && (
+        <WholesaleDistributorPage
+          onNavigateHome={handleNavigateHome}
+          onNavigateMakeMoney={() => {
+            setCurrentPage("make-money")
+            window.history.pushState(null, "", "/#make-money")
+            window.scrollTo({ top: 0, behavior: "smooth" })
+          }}
+          onNavigateContact={() => {
+            setCurrentPage("contact")
+            window.history.pushState(null, "", "/#contact")
+            window.scrollTo({ top: 0, behavior: "smooth" })
+          }}
+        />
+      )}
+
+      {currentPage === "dropship" && (
+        <DropShippingPage
+          onNavigateHome={handleNavigateHome}
+          onNavigateMakeMoney={() => {
+            setCurrentPage("make-money")
+            window.history.pushState(null, "", "/#make-money")
+            window.scrollTo({ top: 0, behavior: "smooth" })
+          }}
+          onNavigateContact={() => {
+            setCurrentPage("contact")
+            window.history.pushState(null, "", "/#contact")
+            window.scrollTo({ top: 0, behavior: "smooth" })
+          }}
+        />
+      )}
+
+      {currentPage === "export" && (
+        <ForeignExportPage
+          onNavigateHome={handleNavigateHome}
+          onNavigateMakeMoney={() => {
+            setCurrentPage("make-money")
+            window.history.pushState(null, "", "/#make-money")
+            window.scrollTo({ top: 0, behavior: "smooth" })
+          }}
+          onNavigateContact={() => {
+            setCurrentPage("contact")
+            window.history.pushState(null, "", "/#contact")
+            window.scrollTo({ top: 0, behavior: "smooth" })
+          }}
+        />
+      )}
+
+      {currentPage === "affiliate" && (
+        <AffiliateProgramPage
+          onNavigateHome={handleNavigateHome}
+          onNavigateMakeMoney={() => {
+            setCurrentPage("make-money")
+            window.history.pushState(null, "", "/#make-money")
+            window.scrollTo({ top: 0, behavior: "smooth" })
+          }}
+          onNavigateContact={() => {
+            setCurrentPage("contact")
+            window.history.pushState(null, "", "/#contact")
+            window.scrollTo({ top: 0, behavior: "smooth" })
+          }}
         />
       )}
 
