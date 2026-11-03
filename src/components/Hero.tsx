@@ -94,3 +94,6 @@ export function WhiteHero() {
     </section>
   )
 }
+
+export { WhiteHero as Hero }
+

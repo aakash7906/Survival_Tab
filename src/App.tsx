@@ -1,14 +1,15 @@
-import { useState } from "react"
-import { WhiteNavbar } from "./components/WhiteNavbar"
-import { WhiteHero } from "./components/WhiteHero"
-import { EmergencyRationsSection } from "./components/EmergencyRationsSection"
-import { PurchaseSection, type ProductItem } from "./components/PurchaseSection"
-import { NutritionFactsSection } from "./components/NutritionFactsSection"
-import { SurvivalConceptSection } from "./components/SurvivalConceptSection"
-import { WhiteFooter } from "./components/WhiteFooter"
+import { useState, useEffect } from "react"
+import { WhiteNavbar } from "./components/Navbar"
+import { HomePage } from "./pages/HomePage"
+import { FaqPage } from "./pages/FaqPage"
+import { ContactUsPage } from "./pages/ContactUsPage"
+import { TestimonialsPage } from "./pages/TestimonialsPage"
+import { WhiteFooter } from "./components/Footer"
 import { CartDrawer, type CartItem } from "./components/CartDrawer"
+import type { ProductItem } from "./components/PurchaseSection"
 
 export default function App() {
+  const [currentPage, setCurrentPage] = useState<"home" | "faq" | "contact" | "testimonials">("home")
   const [cart, setCart] = useState<CartItem[]>([
     {
       product: {
@@ -25,6 +26,24 @@ export default function App() {
   ])
 
   const [cartOpen, setCartOpen] = useState(false)
+
+  // Listen to hash changes for smooth deep-linking
+  useEffect(() => {
+    const handleHash = () => {
+      if (window.location.hash === "#faq") {
+        setCurrentPage("faq")
+      } else if (window.location.hash === "#contact") {
+        setCurrentPage("contact")
+      } else if (window.location.hash === "#testimonials") {
+        setCurrentPage("testimonials")
+      } else if (window.location.hash === "#hero" || !window.location.hash) {
+        setCurrentPage("home")
+      }
+    }
+    handleHash()
+    window.addEventListener("hashchange", handleHash)
+    return () => window.removeEventListener("hashchange", handleHash)
+  }, [])
 
   const handleAddToCart = (product: ProductItem) => {
     setCart((prev) => {
@@ -48,27 +67,66 @@ export default function App() {
     setCart([])
   }
 
+  const handleNavigateHome = () => {
+    setCurrentPage("home")
+    window.location.hash = "#hero"
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }
+
+  const handleNavigateFaq = () => {
+    setCurrentPage("faq")
+    window.location.hash = "#faq"
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }
+
+  const handleOrderNow = () => {
+    setCurrentPage("home")
+    window.location.hash = "#purchase"
+    setTimeout(() => {
+      const el = document.querySelector("#purchase")
+      if (el) el.scrollIntoView({ behavior: "smooth" })
+    }, 60)
+  }
+
   const totalCartCount = cart.reduce((acc, item) => acc + item.quantity, 0)
 
   return (
     <div className="min-h-screen bg-white text-zinc-900 font-sans flex flex-col justify-between selection:bg-red-100 selection:text-red-900">
-      {/* Official White Header / Navbar */}
+      {/* Official Header / Navbar */}
       <WhiteNavbar
         cartCount={totalCartCount}
         onOpenCart={() => setCartOpen(true)}
+        currentPage={currentPage}
+        onNavigate={(page) => setCurrentPage(page as "home" | "faq" | "contact" | "testimonials")}
       />
 
-      {/* Main Content Layout with responsive margin between navbar and WhiteHero */}
-      <main className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8 pt-4 sm:pt-6 lg:pt-8 pb-12">
-        <WhiteHero />
-        <EmergencyRationsSection />
-        <PurchaseSection onAddToCart={handleAddToCart} />
-        <NutritionFactsSection />
-        <SurvivalConceptSection />
-      </main>
+      {/* Dedicated Page Views: Toggle between HomePage, FaqPage, ContactUsPage, and TestimonialsPage */}
+      {currentPage === "faq" && (
+        <FaqPage onNavigateHome={handleNavigateHome} />
+      )}
 
-      {/* Official White Footer */}
-      <WhiteFooter />
+      {currentPage === "contact" && (
+        <ContactUsPage
+          onNavigateHome={handleNavigateHome}
+          onNavigateFaq={handleNavigateFaq}
+        />
+      )}
+
+      {currentPage === "testimonials" && (
+        <TestimonialsPage
+          onNavigateHome={handleNavigateHome}
+          onOrderNow={handleOrderNow}
+        />
+      )}
+
+      {currentPage === "home" && (
+        <HomePage onAddToCart={handleAddToCart} />
+      )}
+
+      {/* Official Footer */}
+      <WhiteFooter
+        onNavigate={(page) => setCurrentPage(page as "home" | "faq" | "contact" | "testimonials")}
+      />
 
       {/* Sliding Slide-over Cart Drawer */}
       <CartDrawer

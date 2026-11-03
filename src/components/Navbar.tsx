@@ -2,29 +2,74 @@ import { useState, useEffect } from "react"
 import { ShoppingBag, Menu, X, Phone, ChevronRight, ShieldCheck } from "lucide-react"
 import { SurvivalLogo } from "./SurvivalLogo"
 
+interface NavLinkItem {
+  label: string
+  href: string
+  badge?: string
+}
+
 interface WhiteNavbarProps {
   cartCount?: number
   onOpenCart?: () => void
+  currentPage?: string
+  onNavigate?: (page: string) => void
 }
 
-export function WhiteNavbar({ cartCount = 0, onOpenCart }: WhiteNavbarProps) {
+export function WhiteNavbar({
+  cartCount = 0,
+  onOpenCart,
+  currentPage = "home",
+  onNavigate,
+}: WhiteNavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
 
-  const navLinks = [
+  const navLinks: NavLinkItem[] = [
     { label: "Home", href: "#hero" },
-    { label: "Emergency Rations", href: "#emergency" },
-    { label: "Purchase Tabs", href: "#purchase", badge: "Order" },
-    { label: "The Concept", href: "#concept" },
-    { label: "Nutrition Spec", href: "#nutrition" },
+    { label: "FAQ", href: "#faq" },
+    { label: "Testimonials", href: "#testimonials" },
     { label: "Contact Us", href: "#contact" },
   ]
 
   const scrollTo = (href: string) => {
     setMobileOpen(false)
-    const el = document.querySelector(href)
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" })
+
+    if (href === "#faq") {
+      onNavigate?.("faq")
+      window.location.hash = "#faq"
+      window.scrollTo({ top: 0, behavior: "smooth" })
+      return
     }
+
+    if (href === "#testimonials") {
+      onNavigate?.("testimonials")
+      window.location.hash = "#testimonials"
+      window.scrollTo({ top: 0, behavior: "smooth" })
+      return
+    }
+
+    if (href === "#contact") {
+      onNavigate?.("contact")
+      window.location.hash = "#contact"
+      window.scrollTo({ top: 0, behavior: "smooth" })
+      return
+    }
+
+    if (currentPage !== "home") {
+      onNavigate?.("home")
+    }
+
+    if (href === "#hero") {
+      window.location.hash = "#hero"
+      window.scrollTo({ top: 0, behavior: "smooth" })
+      return
+    }
+
+    setTimeout(() => {
+      const el = document.querySelector(href)
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" })
+      }
+    }, 60)
   }
 
   // Close mobile menu on ESC key
@@ -54,19 +99,29 @@ export function WhiteNavbar({ cartCount = 0, onOpenCart }: WhiteNavbarProps) {
 
         {/* Desktop Navigation Links (Visible on lg and larger screens) */}
         <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={(e) => {
-                e.preventDefault()
-                scrollTo(link.href)
-              }}
-              className="rounded-lg px-3 py-2 text-xs xl:text-sm font-medium text-zinc-700 hover:text-red-600 hover:bg-zinc-100 transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isFaqActive = link.href === "#faq" && currentPage === "faq"
+            const isContactActive = link.href === "#contact" && currentPage === "contact"
+            const isTestimonialsActive = link.href === "#testimonials" && currentPage === "testimonials"
+            const isActive = isFaqActive || isContactActive || isTestimonialsActive
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollTo(link.href)
+                }}
+                className={`rounded-lg px-3 py-2 text-xs xl:text-sm font-medium transition-colors ${
+                  isActive
+                    ? "text-red-600 bg-red-50 font-semibold"
+                    : "text-zinc-700 hover:text-red-600 hover:bg-zinc-100"
+                }`}
+              >
+                {link.label}
+              </a>
+            )
+          })}
         </nav>
 
         {/* Right CTA, Cart & Mobile Menu Controls */}
@@ -130,27 +185,37 @@ export function WhiteNavbar({ cartCount = 0, onOpenCart }: WhiteNavbarProps) {
             
             {/* Mobile Nav Links */}
             <div className="space-y-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    scrollTo(link.href)
-                  }}
-                  className="flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold text-zinc-800 hover:bg-red-50 hover:text-red-600 transition-colors"
-                >
-                  <span>{link.label}</span>
-                  <div className="flex items-center gap-2">
-                    {link.badge && (
-                      <span className="bg-red-100 text-red-700 text-[10px] uppercase font-bold px-2 py-0.5 rounded-full">
-                        {link.badge}
-                      </span>
-                    )}
-                    <ChevronRight className="h-4 w-4 text-zinc-400" />
-                  </div>
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const isFaqActive = link.href === "#faq" && currentPage === "faq"
+                const isContactActive = link.href === "#contact" && currentPage === "contact"
+                const isTestimonialsActive = link.href === "#testimonials" && currentPage === "testimonials"
+                const isActive = isFaqActive || isContactActive || isTestimonialsActive
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      scrollTo(link.href)
+                    }}
+                    className={`flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold transition-colors ${
+                      isActive
+                        ? "bg-red-50 text-red-600"
+                        : "text-zinc-800 hover:bg-red-50 hover:text-red-600"
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                    <div className="flex items-center gap-2">
+                      {link.badge && (
+                        <span className="bg-red-100 text-red-700 text-[10px] uppercase font-bold px-2 py-0.5 rounded-full">
+                          {link.badge}
+                        </span>
+                      )}
+                      <ChevronRight className="h-4 w-4 text-zinc-400" />
+                    </div>
+                  </a>
+                )
+              })}
             </div>
 
             {/* Mobile Action Buttons */}
@@ -183,3 +248,5 @@ export function WhiteNavbar({ cartCount = 0, onOpenCart }: WhiteNavbarProps) {
     </header>
   )
 }
+
+export { WhiteNavbar as Navbar }

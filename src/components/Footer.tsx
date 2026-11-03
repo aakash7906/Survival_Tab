@@ -1,9 +1,43 @@
 import { Phone, Mail, ArrowUp } from "lucide-react"
 import { FacebookIcon, TwitterIcon, LinkedinIcon, YoutubeIcon } from "./ui/SocialIcons"
 
-export function WhiteFooter() {
+interface WhiteFooterProps {
+  onNavigate?: (page: string) => void
+}
+
+export function WhiteFooter({ onNavigate }: WhiteFooterProps) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
+  }
+
+  const handleNav = (href: string, page = "home") => {
+    onNavigate?.(page)
+    if (page === "faq" || href === "#faq") {
+      window.location.hash = "#faq"
+      window.scrollTo({ top: 0, behavior: "smooth" })
+      return
+    }
+    if (page === "testimonials" || href === "#testimonials") {
+      onNavigate?.("testimonials")
+      window.location.hash = "#testimonials"
+      window.scrollTo({ top: 0, behavior: "smooth" })
+      return
+    }
+    if (page === "contact" || href === "#contact") {
+      onNavigate?.("contact")
+      window.location.hash = "#contact"
+      window.scrollTo({ top: 0, behavior: "smooth" })
+      return
+    }
+    if (href === "#hero") {
+      window.location.hash = "#hero"
+      window.scrollTo({ top: 0, behavior: "smooth" })
+      return
+    }
+    setTimeout(() => {
+      const el = document.querySelector(href)
+      if (el) el.scrollIntoView({ behavior: "smooth" })
+    }, 60)
   }
 
   return (
@@ -43,11 +77,14 @@ export function WhiteFooter() {
               COMPANY
             </h4>
             <ul className="space-y-2 text-xs text-slate-500">
-              <li><a href="#hero" className="hover:text-emerald-600 transition-colors">Overview</a></li>
-              <li><a href="#features" className="hover:text-emerald-600 transition-colors">Features</a></li>
-              <li><a href="#productivity" className="hover:text-emerald-600 transition-colors">System Matrix</a></li>
-              <li><a href="#pricing" className="hover:text-emerald-600 transition-colors">Ration Plans</a></li>
-              <li><a href="#nutrition" className="hover:text-emerald-600 transition-colors">Nutrition Facts</a></li>
+              <li><button onClick={() => handleNav("#hero", "home")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">Overview</button></li>
+              <li><button onClick={() => handleNav("#emergency", "home")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">Features</button></li>
+              <li><button onClick={() => handleNav("#concept", "home")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">System Matrix</button></li>
+              <li><button onClick={() => handleNav("#purchase", "home")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">Ration Plans</button></li>
+              <li><button onClick={() => handleNav("#nutrition", "home")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">Nutrition Facts</button></li>
+              <li><button onClick={() => handleNav("#testimonials", "testimonials")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left font-semibold text-zinc-800">Testimonials</button></li>
+              <li><button onClick={() => handleNav("#faq", "faq")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left font-semibold text-zinc-800">FAQ</button></li>
+              <li><button onClick={() => handleNav("#contact", "contact")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left font-semibold text-zinc-800">Contact Us</button></li>
             </ul>
           </div>
 
@@ -57,11 +94,11 @@ export function WhiteFooter() {
               RETAIL / WHOLESALE
             </h4>
             <ul className="space-y-2 text-xs text-slate-500">
-              <li><a href="#pricing" className="hover:text-emerald-600 transition-colors">Authorized Distributors</a></li>
-              <li><a href="#pricing" className="hover:text-emerald-600 transition-colors">Wholesale Opportunities</a></li>
-              <li><a href="#pricing" className="hover:text-emerald-600 transition-colors">Affiliate Network</a></li>
-              <li><a href="#pricing" className="hover:text-emerald-600 transition-colors">Order Tracking &amp; Status</a></li>
-              <li><a href="#contact" className="hover:text-emerald-600 transition-colors">Government &amp; Bulk Quotes</a></li>
+              <li><button onClick={() => handleNav("#purchase", "home")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">Authorized Distributors</button></li>
+              <li><button onClick={() => handleNav("#purchase", "home")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">Wholesale Opportunities</button></li>
+              <li><button onClick={() => handleNav("#purchase", "home")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">Affiliate Network</button></li>
+              <li><button onClick={() => handleNav("#purchase", "home")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">Order Tracking &amp; Status</button></li>
+              <li><button onClick={() => handleNav("#contact", "home")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">Government &amp; Bulk Quotes</button></li>
             </ul>
           </div>
 
@@ -151,3 +188,5 @@ export function WhiteFooter() {
     </footer>
   )
 }
+
+export { WhiteFooter as Footer }
