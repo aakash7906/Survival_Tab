@@ -74,10 +74,10 @@ const testimonialsData: Testimonial[] = [
     role: "Off-Grid Cabin Homesteader",
     rating: 5,
     date: "December 2025",
-    flavor: "Butterscotch",
+    flavor: "Maple",
     title: "Withstood sub-zero Alaskan winters without any degradation",
     content:
-      "We keep canisters in our snowmobiles, bush plane, and remote winter cache. Even after being subjected to -30°F temperatures and high humidity, the nitrogen seal held completely airtight. The Butterscotch flavor tastes fantastic—sweet, comforting, and gives you an instant morale boost when you're exhausted.",
+      "We keep canisters in our snowmobiles, bush plane, and remote winter cache. Even after being subjected to -30°F temperatures and high humidity, the nitrogen seal held completely airtight. The Maple flavor tastes fantastic—sweet, comforting, and gives you an instant morale boost when you're exhausted.",
     verified: true,
     category: "wilderness",
   },
@@ -133,7 +133,7 @@ export function TestimonialsPage({ onNavigateHome, onOrderNow }: TestimonialsPag
 
   return (
     <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 space-y-10 pt-4 sm:pt-6 lg:pt-8 pb-16">
-      
+
       {/* Breadcrumb Navigation */}
       <nav className="flex items-center gap-2 text-xs text-zinc-500 font-medium">
         <button
@@ -164,7 +164,7 @@ export function TestimonialsPage({ onNavigateHome, onOrderNow }: TestimonialsPag
 
         {/* Rating & Metric Snapshot */}
         <div className="pt-4 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
-          
+
           <div className="rounded-2xl bg-zinc-50 border border-zinc-200 p-4 space-y-1 text-center">
             <div className="flex items-center justify-center gap-1 text-amber-500">
               {[...Array(5)].map((_, i) => (
@@ -202,11 +202,10 @@ export function TestimonialsPage({ onNavigateHome, onOrderNow }: TestimonialsPag
           <button
             key={tab.id}
             onClick={() => setActiveFilter(tab.id)}
-            className={`px-4 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer ${
-              activeFilter === tab.id
+            className={`px-4 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer ${activeFilter === tab.id
                 ? "bg-zinc-900 text-white shadow-xs"
                 : "bg-white text-zinc-600 border border-zinc-200 hover:bg-zinc-50 hover:text-zinc-900"
-            }`}
+              }`}
           >
             {tab.label}
           </button>
@@ -300,7 +299,7 @@ export function TestimonialsPage({ onNavigateHome, onOrderNow }: TestimonialsPag
             <PackageCheck className="h-4 w-4" />
             <span>Order Survival Tabs Now</span>
           </button>
-          
+
           <button
             onClick={onNavigateHome}
             className="flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-white font-semibold px-6 py-3 text-xs transition-colors cursor-pointer"

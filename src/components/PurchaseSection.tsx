@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Check, ShoppingCart } from "lucide-react"
 
 export interface ProductItem {
@@ -30,19 +30,19 @@ const products: ProductItem[] = [
     image: "/images/banana.png",
   },
   {
-    id: "st-strawberry",
-    name: "Survival Tabs Strawberry",
-    flavor: "Strawberry",
+    id: "Orange",
+    name: "Survival Tabs Orange",
+    flavor: "Orange",
     price: 39.95,
-    illustration: "🍓 Wild Berry",
+    illustration: "🍊 Orange",
     image: "/images/orange.jpg",
   },
   {
-    id: "st-butterscotch",
-    name: "Survival Tabs Butterscotch",
-    flavor: "Butterscotch",
+    id: "st-Maple",
+    name: "Survival Tabs Maple",
+    flavor: "Maple",
     price: 39.95,
-    illustration: "🍁 Butterscotch",
+    illustration: "🍁 Maple",
     image: "/images/maple.jpg",
   },
   {
@@ -55,12 +55,33 @@ const products: ProductItem[] = [
   },
 ]
 
+const bannerImages = [
+  { src: "/banners/trekking-camping-hiking-and-wild-life-concept.jpeg", alt: "Trekking and Camping Wilderness Adventure" },
+  { src: "/banners/friends-camping-at-campsite.jpeg", alt: "Friends Camping at Scenic Campsite" },
+  { src: "/banners/party-camping-of-men-and-women-group-at-forest.jpeg", alt: "Group Forest Camping and Outdoor Exploration" },
+  { src: "/banners/everest-base-camp-mountains-landscape.jpeg", alt: "Everest Base Camp High Altitude Expedition" },
+  { src: "/banners/ama-dablam-mountain-in-himalaya-inspirational-2.jpeg", alt: "Ama Dablam Mountain Summit Expedition" },
+  { src: "/banners/alaskan-large.jpg", alt: "Alaskan Wilderness Survival Experience" },
+  { src: "/banners/airman-alaska_large.jpg", alt: "Airman Alaska Survival Preparedness" },
+  { src: "/banners/apollo-mission.jpeg", alt: "Apollo Mission Space Heritage" },
+  { src: "/banners/astronaut-in-outer-space-PLEE4QR.jpeg", alt: "Astronaut in Outer Space Space Food Nutrition" },
+]
+
 interface PurchaseSectionProps {
   onAddToCart: (item: ProductItem) => void
 }
 
 export function PurchaseSection({ onAddToCart }: PurchaseSectionProps) {
   const [addedId, setAddedId] = useState<string | null>(null)
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  // Auto-swipe every 1.5 seconds (1500ms)
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % bannerImages.length)
+    }, 1500)
+    return () => clearInterval(timer)
+  }, [])
 
   const handleAdd = (p: ProductItem) => {
     onAddToCart(p)
@@ -71,15 +92,40 @@ export function PurchaseSection({ onAddToCart }: PurchaseSectionProps) {
   return (
     <section id="purchase" className="w-full py-12 bg-white">
       <div className="max-w-6xl mx-auto px-4 space-y-10">
-        
-        {/* Camping Photo Banner directly from Screenshot */}
-        <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden shadow-sm bg-zinc-900">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1510312305653-8ed496efae75?q=80&w=2000&auto=format&fit=crop')`,
-            }}
-          />
+
+        {/* Camping & Adventure Photo Banner Carousel - Auto-Swipes every 1.5s */}
+        <div className="relative w-full h-80 sm:h-[420px] md:h-[480px] lg:h-[520px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm bg-zinc-950">
+          {bannerImages.map((img, idx) => (
+            <div
+              key={img.src}
+              className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${idx === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+                }`}
+            >
+              <img
+                src={img.src}
+                alt={img.alt}
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
+          ))}
+
+          {/* Subtle bottom gradient & dot indicators */}
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/60 to-transparent z-20 pointer-events-none" />
+
+          {/* Dots Indicator */}
+          <div className="absolute bottom-4 inset-x-0 flex items-center justify-center gap-2 z-30">
+            {bannerImages.map((_, dotIdx) => (
+              <button
+                key={dotIdx}
+                onClick={() => setCurrentSlide(dotIdx)}
+                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${dotIdx === currentSlide
+                    ? "w-8 bg-white"
+                    : "w-2 bg-white/50 hover:bg-white/80"
+                  }`}
+                aria-label={`Go to slide ${dotIdx + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Section Heading */}
@@ -132,11 +178,10 @@ export function PurchaseSection({ onAddToCart }: PurchaseSectionProps) {
                 {/* Add to Cart Button */}
                 <button
                   onClick={() => handleAdd(p)}
-                  className={`w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                    isAdded
+                  className={`w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer ${isAdded
                       ? "bg-emerald-600 text-white"
                       : "bg-red-600 hover:bg-red-700 text-white shadow-sm hover:shadow"
-                  }`}
+                    }`}
                 >
                   {isAdded ? (
                     <>

@@ -8,7 +8,7 @@ import {
 
 export interface FaqItem {
   id: string
-  category: "all" | "general" | "storage" | "nutrition" | "flavors" | "ordering"
+  category: "all" | "general" | "storage" | "nutrition" | "usage" | "survival"
   question: string
   answer: string
   highlights?: string[]
@@ -16,132 +16,235 @@ export interface FaqItem {
 
 const faqData: FaqItem[] = [
   {
-    id: "what-are-survival-tabs",
-    category: "general",
-    question: "What are The Survival Tabs and how are they different from normal food?",
-    answer:
-      "The Survival Tabs are the premier lightweight, compact emergency food ration system. Unlike traditional survival food that is bulky, requires cooking, and produces substantial metabolic waste, The Survival Tabs are engineered to be 99% bio-available. Just 12 chewable tablets per day provide 100% of the US RDA for 15 essential vitamins and minerals, keeping you sustained, nourished, and alert with zero cooking or preparation required.",
-    highlights: [
-      "Originally formulated around early space program requirements",
-      "99% absorption rate into the bloodstream with minimal digestive strain",
-      "100% US RDA of 15 essential vitamins and minerals",
-    ],
+    "id": "what-are-survival-tabs",
+    "category": "general",
+    "question": "What are Survival Tabs?",
+    "answer": "Survival Tabs are the best possible food source in the smallest possible volume. They are designed for situations where an immediate need for nutrition must be met or as a meal replacement for on the go snacking. One bottle provides you with up to 15 days of nutrition.",
+    "highlights": [
+      "Best possible food source in the smallest possible volume",
+      "Provides up to 15 days of nutrition per bottle",
+      "Emergency nutrition or on-the-go meal replacement"
+    ]
   },
   {
-    id: "calorie-concept",
-    category: "nutrition",
-    question: "How can 12 tabs (240 calories) sustain a person for an entire day?",
-    answer:
-      "Standard food is largely excreted as undigested bulk waste, requiring immense digestive energy from your organs. The Survival Tabs use exceptionally high-grade protein, healthy fatty acids, and essential carbohydrates that are nearly 100% absorbed by your body. Furthermore, the protein profile prevents 'tissue cannibalism' (where your body consumes its own muscle for amino acids). In 90% of survival scenarios, having complete micronutrition and clean energy gives you the vital margin of survival.",
-    highlights: [
-      "Prevents muscle wasting (tissue cannibalism)",
-      "Supplies clean fatty acids for sustained mental focus",
-      "Quick carbohydrates without blood sugar crashes",
-    ],
+    "id": "are-survival-food-tablets-supposed-to-be-considere",
+    "category": "usage",
+    "question": "Are Survival Food Tablets supposed to be considered as a sole daily food source or in combination with a daily food intake?",
+    "answer": "Survival Tabs can be used as a daily sole source food if necessary. However, they were designed with the idea that there would be other foods available either from one’s own stocks or from the land, i.e. wildlife or fruits and vegetables. With this in mind, the Survival Tabs could be used to fill in when things were lean. Nonetheless, they can sustain a person for an extended period of time. How long, depends on many factors, including the person’s constitution, mentality and activities.",
+    "highlights": [
+      "Can be used as a daily sole source food if necessary",
+      "Designed to fill in when other food sources are lean",
+      "Sustains a person for extended periods"
+    ]
   },
   {
-    id: "shelf-life-storage",
-    category: "storage",
-    question: "What is the shelf life and how should they be stored?",
-    answer:
-      "The Survival Tabs carry an official certified shelf life of 25 years from the date of manufacture. The canisters are sealed with food-grade nitrogen to eliminate oxygen and moisture. Independent laboratory testing on tablets stored across varying climates confirmed zero degradation in nutritional value or flavor. For optimal longevity, store in a cool, dry place away from direct sunlight.",
-    highlights: [
-      "Certified 25-Year Shelf Life",
-      "Nitrogen-packed tamper-proof vacuum seal",
-      "Withstands high ambient temperature fluctuations",
-    ],
+    "id": "what-industry-professionals-use-survival-tabs",
+    "category": "usage",
+    "question": "What industry professionals use Survival Tabs?",
+    "answer": "Survival Tabs are used by office workers, firemen, long distance truckers, professional athletes, cyclists, marathon runners, and military personnel as an emergency survival food or on the go meal replacement. They are many other industries that Survival Tabs can be beneficial too as well. They are the perfect compact food source for anyone.",
+    "highlights": [
+      "Used by office workers, firemen, truckers, athletes, and military",
+      "Ideal compact emergency food or active meal replacement"
+    ]
   },
   {
-    id: "preparation-and-consumption",
-    category: "general",
-    question: "Do I need water, a stove, or preparation to eat them?",
-    answer:
-      "No preparation, water, or cooking is required. The Survival Tabs are completely ready-to-eat chewable tablets. You simply chew them slowly or let them dissolve in your mouth. This makes them ideal for 'drop-everything-and-go' situations, vehicle gloveboxes, bug-out bags, and situations where clean potable water or cooking fire may be scarce.",
-    highlights: [
-      "Zero water or heat required",
-      "Chewable or dissolve in mouth",
-      "Instant fuel during wilderness or disaster scenarios",
-    ],
+    "id": "what-are-some-examples-of-everyday-use-for-surviva",
+    "category": "usage",
+    "question": "What are some examples of everyday use for Survival Tabs?",
+    "answer": "Survival Tabs are popular with busy moms who need a boost of energy without the crash caused by energy drinks. Students use them to keep their energy up and brains alert during study sessions and hectic class schedules. Office workers who often miss a meal rely on them for a sustainable energy snack. Hardcore (video) gamers also love the fast nutrition Survival Tabs provide for them without having to pause or leave their games.",
+    "highlights": [
+      "Boost of energy without the crash for busy parents and students",
+      "Sustained energy snack for office workers and gamers"
+    ]
   },
   {
-    id: "flavors-available",
-    category: "flavors",
-    question: "What flavors are available and what do they taste like?",
-    answer:
-      "The Survival Tabs come in 5 delicious, naturally flavored varieties: Natural Banana, Roasted Chocolate, Wild Strawberry, Butterscotch / Maple, and Vanilla Malt. Unlike chalky MREs, they have a pleasant, smooth malt-tablet texture with a sweet, comforting flavor profile.",
-    highlights: [
-      "5 delicious flavors: Banana, Chocolate, Strawberry, Butterscotch, Vanilla Malt",
-      "Pleasant chewable tablet consistency",
-      "Loved by both adults and children",
-    ],
+    "id": "what-are-some-examples-of-outdoor-use-for-survival",
+    "category": "usage",
+    "question": "What are some examples of outdoor use for Survival Tabs?",
+    "answer": "Survival Tabs are used by campers, scout masters, outdoors men, survivalist, and hunters when out in the wilderness. Their compact and lightweight design makes them ideal to have as a food supply when camping, exploring, or hiking.",
+    "highlights": [
+      "Used by campers, scout masters, survivalists, and hunters",
+      "Lightweight and compact food supply for wilderness exploration"
+    ]
   },
   {
-    id: "gluten-and-allergens",
-    category: "nutrition",
-    question: "Are The Survival Tabs gluten-free, Non-GMO, and preservative-free?",
-    answer:
-      "Yes. The Survival Tabs are 100% Gluten-Free, Non-GMO, and contain zero artificial chemical preservatives. They contain non-fat dry milk solids as a primary high-purity protein source, combined with high-grade vegetable oils (sunflower/safflower oil) and laboratory-verified pharmaceutical grade vitamins.",
-    highlights: [
-      "Gluten-Free certified",
-      "Non-GMO formulation",
-      "No chemical preservatives or artificial fillers",
-    ],
+    "id": "what-is-the-main-purpose-of-survival-tabs",
+    "category": "general",
+    "question": "What is the main purpose of Survival Tabs?",
+    "answer": "Survival Tabs are meant to keep you alive and going for months at a time. A person can survive 4-5 months by eating Survival Tabs exclusively. In an emergency situation, one 180-tablet bottle of chewable tabs supplies a person with 15 days’ worth of survival food based on the recommended consumption of 12 tablets per day. This can be stretched to a 30-day supply under extreme conditions.",
+    "highlights": [
+      "Keeps a person sustained for months at a time (4-5 months exclusively)",
+      "180-tablet bottle = 15 days of food at 12 tabs/day (stretchable to 30 days)"
+    ]
   },
   {
-    id: "how-many-tabs-in-bottle",
-    category: "ordering",
-    question: "How many tablets come in each bottle, and how long does one bottle last?",
-    answer:
-      "Each 24 oz canister contains 180 chewable tablets. At the full recommended survival ration of 12 tablets per day, one bottle provides a 15-day complete emergency food supply for one adult. If used as a nutritional supplement alongside other emergency food or forage, one bottle can easily last 30 to 60 days.",
-    highlights: [
-      "180 chewable tabs per canister",
-      "15 days of 100% full survival rations",
-      "Up to 60 days of nutritional support",
-    ],
+    "id": "what-is-survival-tabs-concept",
+    "category": "general",
+    "question": "What is Survival Tabs concept?",
+    "answer": "Survival Tabs are designed to provide you with the best possible nutrition in the smallest possible volume. State of the art development has made it possible for Survival Tabs to combine essential nutrients with important foods into a nutrient-dense food concentrate.",
+    "highlights": [
+      "Maximum nutrition in minimal volume",
+      "Combines essential nutrients into nutrient-dense concentrate"
+    ]
   },
   {
-    id: "usage-schedule",
-    category: "general",
-    question: "What is the recommended daily schedule for taking the tablets?",
-    answer:
-      "We recommend taking 1 tablet every hour to hour-and-a-half during your waking hours (totaling 12 tablets across a 12-to-16-hour day). Chewing one tablet slowly every hour keeps your metabolism steady, eliminates hunger pangs, provides continuous glucose to the brain, and ensures steady physical stamina.",
-    highlights: [
-      "1 tablet per hour during waking day",
-      "Prevents energy dips and keeps hunger satisfied",
-      "Consistent nutrient absorption throughout the day",
-    ],
+    "id": "how-should-i-store-survival-tabs-when-unopened-lon",
+    "category": "storage",
+    "question": "How should I store Survival Tabs when unopened; long-term?",
+    "answer": "For long term storage when unopened, keep this bottle in a cool dry place at room temperature.",
+    "highlights": [
+      "Store unopened in a cool, dry place at room temperature",
+      "Certified for long-term emergency readiness"
+    ]
   },
   {
-    id: "made-in-usa-quality",
-    category: "ordering",
-    question: "Where are The Survival Tabs made and what quality standards are followed?",
-    answer:
-      "The Survival Tabs are 100% manufactured in the United States in an FDA-inspected, cGMP (Current Good Manufacturing Practices) certified facility. Every batch undergoes rigorous microbiological and potency testing to guarantee 100% label accuracy and 25-year stability.",
-    highlights: [
-      "Proudly Made in the USA",
-      "cGMP certified manufacturing facility",
-      "Rigorous laboratory quality control",
-    ],
+    "id": "how-should-i-store-survival-tabs-once-opened",
+    "category": "storage",
+    "question": "How should I store Survival Tabs once opened?",
+    "answer": "Avoid extended periods of exposure to high temperatures, and keep the bottle closed. Also, avoid unnecessary exposure to air once opened.",
+    "highlights": [
+      "Keep bottle tightly closed after opening",
+      "Avoid unnecessary air exposure and extended high temperatures"
+    ]
   },
   {
-    id: "shipping-and-bulk",
-    category: "ordering",
-    question: "What are your shipping policies and do you offer bulk discounts?",
-    answer:
-      "We ship worldwide. All domestic orders over $150 qualify for Fast Free Standard Shipping. For disaster response agencies, government contracts, search and rescue squads, or wholesale distribution, we provide bulk pallet pricing and tax-exempt purchasing options.",
-    highlights: [
-      "Free domestic shipping on orders over $150",
-      "Worldwide expedited international shipping available",
-      "Discounts for first responders, SAR teams, and bulk purchases",
-    ],
+    "id": "how-do-survival-tabs-work",
+    "category": "nutrition",
+    "question": "How do Survival Tabs Work?",
+    "answer": "Survival Tabs provide you with high daily nutrition in a compact and lightweight form. The chewable tabs provide the body with 100% of the daily recommended vitamins and nutrients needed per serving. They are so completely and quickly digested they have a 99% absorption rate. Within five minutes of consuming the tabs, 97% of the protein is available to repair and replace essential body tissues and fluids. Survival Tabs allow you to utilize 99% of their calorie content for energy.",
+    "highlights": [
+      "99% absorption rate into the body with rapid assimilation",
+      "97% of protein available within 5 minutes for tissue repair",
+      "99% of calorie content utilized for energy"
+    ]
   },
+  {
+    "id": "how-safe-are-survival-tabs-for-your-body",
+    "category": "nutrition",
+    "question": "How safe are Survival Tabs for your body?",
+    "answer": "Survival Tabs are the best possible source of nutrition for your body when a reliable food source is not available. They are made using everyday ingredients that are safe and essential for the body.",
+    "highlights": [
+      "Safe and reliable nutrition when regular food is unavailable",
+      "Made using everyday ingredients essential for the human body"
+    ]
+  },
+  {
+    "id": "what-industry-professionals-use-survival-tabs-alt",
+    "category": "usage",
+    "question": "What industry professionals use Survival Tabs?",
+    "answer": "Survival Tabs are used by office workers, firemen, long distance truckers, professional athletes, cyclists, marathon runners, and military personnel as an emergency survival food or on the go meal replacement. They are many other industries that Survival Tabs can be beneficial too as well. They are the perfect compact food source for anyone.",
+    "highlights": [
+      "Used by office workers, firemen, truckers, athletes, and military",
+      "Perfect compact food source for any demanding profession"
+    ]
+  },
+  {
+    "id": "how-many-calories-are-in-survival-tabs",
+    "category": "nutrition",
+    "question": "How many calories are in Survival Tabs?",
+    "answer": "Survival Tabs provide you with 240 calories per serving of 12 tabs. This amount can be increased to meet a higher calorie intake if you desire.",
+    "highlights": [
+      "240 calories per recommended serving of 12 tabs",
+      "Can be increased to meet higher daily caloric needs"
+    ]
+  },
+  {
+    "id": "how-long-are-survival-tabs-good-for-once-they-are-",
+    "category": "storage",
+    "question": "How long are Survival Tabs good for once they are opened?",
+    "answer": "Once opened, Survival Tabs will remain usable for up to 90 days before losing their efficacy.",
+    "highlights": [
+      "Remains fully usable for up to 90 days once opened",
+      "Tightly seal between uses to protect freshness"
+    ]
+  },
+  {
+    "id": "how-much-weight-loss-occurs-exclusively-using-surv",
+    "category": "nutrition",
+    "question": "How much weight loss occurs exclusively using Survival Tabs?",
+    "answer": "When exclusively using Survival Tabs as a food source, you can may experience 5-8 pounds of weight loss in the first week, then an average of 2 pounds a week, thereafter. This is in consideration of a normal, active daily routine.",
+    "highlights": [
+      "5-8 lbs weight loss typical during first week under sole consumption",
+      "Averages ~2 lbs/week thereafter under normal daily activity"
+    ]
+  },
+  {
+    "id": "how-many-tabs-per-day-can-i-eat",
+    "category": "usage",
+    "question": "How many tabs per day can I eat?",
+    "answer": "We recommend 12 tabs a day, but you may consume more or less based on your appetite or situation.",
+    "highlights": [
+      "Recommended baseline: 12 chewable tabs per day",
+      "Adjustable up or down based on appetite and situation"
+    ]
+  },
+  {
+    "id": "what-ages-are-these-intended-for",
+    "category": "general",
+    "question": "What ages are these intended for?",
+    "answer": "Survival Tabs are intended for anyone who can consume the chewable tablets or allow them to dissolve in their mouth.",
+    "highlights": [
+      "Suitable for anyone who can chew tablets or let them dissolve in mouth"
+    ]
+  },
+  {
+    "id": "what-are-the-nutritional-benefits-of-survival-tabs",
+    "category": "nutrition",
+    "question": "What are the Nutritional Benefits of Survival Tabs?",
+    "answer": "Survival Tabs provide you with 100% of the daily recommended Vitamins and minerals. For full nutrition facts please visit our nutrition page.",
+    "highlights": [
+      "Provides 100% of daily recommended vitamins and minerals",
+      "Complete nutritional profile engineered for high bioavailability"
+    ]
+  },
+  {
+    "id": "what-are-shelf-life-and-sustainability",
+    "category": "storage",
+    "question": "What are Shelf Life and Sustainability?",
+    "answer": "We have samples of Survival Tabs that were produced in 1974-75. They have been stored at room temperature. We test them periodically and have found little, if any, deterioration or loss of vitamin or food value.\n\nWe have also used accelerated storage testing at higher than normal temperatures to determine loss of food value and acceptability. Our results showed negligible loss in these areas\n\nFreezing temperatures will have no effect at all on these tablets.\n\nWe would estimate the shelf-life for Survival Tabs to be 25 years.",
+    "highlights": [
+      "Certified 25-Year estimated shelf-life based on 1974-75 sample testing",
+      "Withstands accelerated high temperatures with negligible loss",
+      "Freezing temperatures have zero negative effect"
+    ]
+  },
+  {
+    "id": "if-one-wants-to-use-these-tablets-for-long-period-",
+    "category": "survival",
+    "question": "If one wants to use these tablets for long period of time, for example 4-8 weeks with no food, what would happen with the deficiency of other nutrients?",
+    "answer": "You could survive and sustain yourself for 4-8 weeks with the tabs, but you are right, you’d be deficient in some nutrients which we normally get from regular foods. Survival Tabs can’t replace all the nutrition that your body needs for an extended length of time.",
+    "highlights": [
+      "Can sustain a person for 4-8 weeks in emergency scarcity",
+      "Supplies critical core nutrition when standard food is unavailable"
+    ]
+  },
+  {
+    "id": "one-tablet-provides-100-of-some-nutrients-such-as-",
+    "category": "nutrition",
+    "question": "One tablet provides 100% of some nutrients such as Iron, Vitamin A or Vitamin C. Twelve tablets provide 12 times of RDA?",
+    "answer": "Twelve Survival Tabs supply 100% of the USRDA for practically all the vitamins and minerals indicated on the label, with the exception of Calcium, which in order to have 100% of the RDA we’d have to make Survival Tab as big as a golf ball.",
+    "highlights": [
+      "12 tabs supply 100% of US RDA for practically all indicated vitamins & minerals",
+      "Formulated without excessive bulk filler"
+    ]
+  },
+  {
+    "id": "if-one-has-access-only-to-survival-tabs-but-enough",
+    "category": "survival",
+    "question": "If one has access only to Survival Tabs, but enough water and no food, how long could they survive maximum? What would be the medical consequences or complications for doing so?",
+    "answer": "With just Survival Tabs and water, depending on the circumstances of course, one could maintain oneself for 3-4 months without any major difficulties. When Survival Tabs were first developed, there was a woman, deathly ill and expected to die soon, who could not keep anything down. Someone suggested Survival Tabs. She went on them exclusively and lived 2 years.\n\nThere was another man, who was given 2 months to live by his doctor. He could not eat or assimilate food to any extent. He took Survival Tabs, and lived another 6 months. These were sick people and these were random situations, not scientific tests. We have had healthy people go on Survival Tabs for 2 months, and the result was an initial loss of weight of 10-15 lbs, then a leveling off of another 10 lbs for the duration of the time.",
+    "highlights": [
+      "Maintains a person for 3-4 months with tabs and water alone",
+      "Real-world track record sustaining individuals through severe illness and scarcity"
+    ]
+  }
 ]
 
 interface FaqPageProps {
   onNavigateHome?: () => void
 }
 
-export function FaqPage({  onNavigateHome }: FaqPageProps) {
+export function FaqPage({ onNavigateHome }: FaqPageProps) {
   const [activeCategory, setActiveCategory] = useState<string>("all")
   const [searchQuery, setSearchQuery] = useState<string>("")
   const [openIds, setOpenIds] = useState<Record<string, boolean>>({})
@@ -182,9 +285,9 @@ export function FaqPage({  onNavigateHome }: FaqPageProps) {
     { id: "all", label: "All Questions" },
     { id: "general", label: "General & Concept" },
     { id: "nutrition", label: "Nutrition & Bio-Availability" },
-    { id: "storage", label: "25-Yr Shelf Life" },
-    { id: "flavors", label: "Flavors & Taste" },
-    { id: "ordering", label: "Orders & Shipping" },
+    { id: "storage", label: "Shelf Life & Storage" },
+    { id: "usage", label: "Daily & Field Use" },
+    { id: "survival", label: "Long-Term Survival" },
   ]
 
   return (
@@ -209,8 +312,8 @@ export function FaqPage({  onNavigateHome }: FaqPageProps) {
         </h1>
 
         <p className="text-sm sm:text-base text-zinc-600 max-w-2xl mx-auto leading-relaxed">
-          Everything you need to know about the 25-year emergency food ration system,
-          bio-availability, daily consumption protocols, and long-term storage.
+          Everything you need to know about The Survival Tabs: nutrition, 25-year shelf life,
+          daily consumption protocols, bio-availability, and emergency preparedness.
         </p>
 
         {/* Search Bar */}
@@ -221,7 +324,7 @@ export function FaqPage({  onNavigateHome }: FaqPageProps) {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search questions (e.g. shelf life, flavors, calories, water)..."
+              placeholder="Search questions (e.g. shelf life, calories, weight loss, storage)..."
               className="w-full pl-11 pr-4 py-3 text-sm rounded-full bg-zinc-50 border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-600/20 focus:border-red-600 transition-all shadow-xs"
             />
             {searchQuery && (
@@ -333,7 +436,7 @@ export function FaqPage({  onNavigateHome }: FaqPageProps) {
                 {/* Accordion Content Panel */}
                 {isOpen && (
                   <div className="px-5 sm:px-6 pb-6 pt-1 border-t border-zinc-100 space-y-4 text-xs sm:text-sm text-zinc-600 leading-relaxed font-sans">
-                    <p className="text-zinc-700">{item.answer}</p>
+                    <p className="text-zinc-700 whitespace-pre-line leading-relaxed">{item.answer}</p>
 
                     {item.highlights && item.highlights.length > 0 && (
                       <div className="pt-2 rounded-xl bg-zinc-50 p-4 border border-zinc-200/80 space-y-2">

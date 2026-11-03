@@ -1,14 +1,27 @@
 export function SurvivalConceptSection() {
   return (
     <section id="concept" className="w-full py-16 bg-white border-t border-zinc-200">
-      <div className="max-w-4xl mx-auto px-6 space-y-8 text-center sm:text-left">
-        
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-center sm:text-left">
+
         {/* Title */}
         <div className="text-center space-y-2">
           <h2 className="text-2xl sm:text-3xl font-light tracking-wide text-zinc-900 uppercase">
             SURVIVAL FOOD TAB CONCEPT
           </h2>
           <div className="h-0.5 w-16 bg-red-600 mx-auto" />
+        </div>
+
+        {/* Concept Video Player - Seamless edge-to-edge video fit with zero black side bars */}
+        <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-zinc-200 aspect-video bg-transparent">
+          <video
+            src="/videos/survival-concept.mp4"
+            controls
+            playsInline
+            preload="metadata"
+            className="w-full h-full object-cover block"
+          >
+            Your browser does not support the video tag.
+          </video>
         </div>
 
         {/* Narrative Paragraphs verbatim from survivaltabs.com */}
