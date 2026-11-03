@@ -135,7 +135,7 @@ export function TestimonialsPage({ onNavigateHome, onOrderNow }: TestimonialsPag
     <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 space-y-10 pt-4 sm:pt-6 lg:pt-8 pb-16">
 
       {/* Breadcrumb Navigation */}
-      <nav className="flex items-center gap-2 text-xs text-zinc-500 font-medium">
+      <nav className="flex items-center gap-2 text-xs text-muted-foreground font-medium">
         <button
           onClick={onNavigateHome}
           className="hover:text-red-600 transition-colors cursor-pointer"
@@ -143,21 +143,21 @@ export function TestimonialsPage({ onNavigateHome, onOrderNow }: TestimonialsPag
           Home
         </button>
         <span>/</span>
-        <span className="text-zinc-900 font-semibold">Customer Testimonials</span>
+        <span className="text-primary font-semibold">Customer Testimonials</span>
       </nav>
 
       {/* Header Banner */}
-      <div className="relative rounded-2xl sm:rounded-3xl bg-white border border-zinc-200 p-6 sm:p-10 lg:p-14 shadow-xs overflow-hidden text-center space-y-4 sm:space-y-5">
+      <div className="relative rounded-2xl sm:rounded-3xl bg-card border border-border p-6 sm:p-10 lg:p-14 shadow-xs overflow-hidden text-center space-y-4 sm:space-y-5">
         <div className="inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-200 px-3 sm:px-3.5 py-1 text-[11px] sm:text-xs font-bold text-red-700 tracking-wider uppercase">
           <Award className="h-3.5 w-3.5 text-red-600 shrink-0" />
           <span>VERIFIED CUSTOMER REVIEWS &bull; 4.9 / 5.0 RATING</span>
         </div>
 
-        <h1 className="text-2xl min-[400px]:text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-zinc-900 max-w-3xl mx-auto leading-tight">
+        <h1 className="text-2xl min-[400px]:text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-primary max-w-3xl mx-auto leading-tight">
           Trusted in the Field for Over 40 Years
         </h1>
 
-        <p className="text-xs sm:text-sm md:text-base text-zinc-600 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-xs sm:text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
           Read genuine field reports from wilderness adventurers, search-and-rescue teams,
           survivalists, and families across America who rely on The Survival Tabs.
         </p>
@@ -165,32 +165,32 @@ export function TestimonialsPage({ onNavigateHome, onOrderNow }: TestimonialsPag
         {/* Rating & Metric Snapshot */}
         <div className="pt-2 sm:pt-4 grid grid-cols-1 min-[340px]:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto text-left">
 
-          <div className="rounded-2xl bg-zinc-50 border border-zinc-200 p-3.5 sm:p-4 space-y-1 text-center">
+          <div className="rounded-2xl bg-secondary border border-border p-3.5 sm:p-4 space-y-1 text-center">
             <div className="flex items-center justify-center gap-1 text-amber-500">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="h-3.5 sm:h-4 w-3.5 sm:w-4 fill-amber-400 text-amber-400" />
               ))}
             </div>
-            <div className="text-xl sm:text-2xl font-black text-zinc-900">4.9 / 5.0</div>
-            <span className="text-[10px] sm:text-[11px] text-zinc-500 font-medium">Over 2,400+ Verified Reviews</span>
+            <div className="text-xl sm:text-2xl font-black text-primary">4.9 / 5.0</div>
+            <span className="text-[10px] sm:text-[11px] text-muted-foreground font-medium">Over 2,400+ Verified Reviews</span>
           </div>
 
-          <div className="rounded-2xl bg-zinc-50 border border-zinc-200 p-3.5 sm:p-4 space-y-1 text-center">
-            <div className="text-xl sm:text-2xl font-black text-zinc-900">25 Years</div>
+          <div className="rounded-2xl bg-secondary border border-border p-3.5 sm:p-4 space-y-1 text-center">
+            <div className="text-xl sm:text-2xl font-black text-primary">25 Years</div>
             <div className="text-[11px] sm:text-xs font-bold text-emerald-700 uppercase">Certified Shelf Life</div>
-            <span className="text-[10px] sm:text-[11px] text-zinc-500 font-medium">Nitrogen vacuum sealed</span>
+            <span className="text-[10px] sm:text-[11px] text-muted-foreground font-medium">Nitrogen vacuum sealed</span>
           </div>
 
-          <div className="rounded-2xl bg-zinc-50 border border-zinc-200 p-3.5 sm:p-4 space-y-1 text-center">
-            <div className="text-xl sm:text-2xl font-black text-zinc-900">99%</div>
+          <div className="rounded-2xl bg-secondary border border-border p-3.5 sm:p-4 space-y-1 text-center">
+            <div className="text-xl sm:text-2xl font-black text-primary">99%</div>
             <div className="text-[11px] sm:text-xs font-bold text-red-700 uppercase">Bio-Availability</div>
-            <span className="text-[10px] sm:text-[11px] text-zinc-500 font-medium">Instant cellular absorption</span>
+            <span className="text-[10px] sm:text-[11px] text-muted-foreground font-medium">Instant cellular absorption</span>
           </div>
 
-          <div className="rounded-2xl bg-zinc-50 border border-zinc-200 p-3.5 sm:p-4 space-y-1 text-center">
-            <div className="text-xl sm:text-2xl font-black text-zinc-900">100%</div>
-            <div className="text-[11px] sm:text-xs font-bold text-zinc-800 uppercase">Made in the USA</div>
-            <span className="text-[10px] sm:text-[11px] text-zinc-500 font-medium">cGMP certified quality</span>
+          <div className="rounded-2xl bg-secondary border border-border p-3.5 sm:p-4 space-y-1 text-center">
+            <div className="text-xl sm:text-2xl font-black text-primary">100%</div>
+            <div className="text-[11px] sm:text-xs font-bold text-primary uppercase">Made in the USA</div>
+            <span className="text-[10px] sm:text-[11px] text-muted-foreground font-medium">cGMP certified quality</span>
           </div>
 
         </div>
@@ -203,8 +203,8 @@ export function TestimonialsPage({ onNavigateHome, onOrderNow }: TestimonialsPag
             key={tab.id}
             onClick={() => setActiveFilter(tab.id)}
             className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-semibold transition-all cursor-pointer ${activeFilter === tab.id
-                ? "bg-zinc-900 text-white shadow-xs"
-                : "bg-white text-zinc-600 border border-zinc-200 hover:bg-zinc-50 hover:text-zinc-900"
+                ? "bg-primary text-primary-foreground shadow-xs"
+                : "bg-card text-muted-foreground border border-border hover:bg-secondary hover:text-primary"
               }`}
           >
             {tab.label}
@@ -217,7 +217,7 @@ export function TestimonialsPage({ onNavigateHome, onOrderNow }: TestimonialsPag
         {filteredReviews.map((review) => (
           <div
             key={review.id}
-            className="flex flex-col justify-between rounded-2xl sm:rounded-3xl bg-white border border-zinc-200 p-5 sm:p-7 shadow-xs hover:border-red-200 hover:shadow-md transition-all space-y-4 sm:space-y-5"
+            className="flex flex-col justify-between rounded-2xl sm:rounded-3xl bg-card border border-border p-5 sm:p-7 shadow-xs hover:border-red-200 hover:shadow-md transition-all space-y-4 sm:space-y-5"
           >
             {/* Header: Stars & Flavor Tag */}
             <div className="space-y-3">
@@ -233,20 +233,20 @@ export function TestimonialsPage({ onNavigateHome, onOrderNow }: TestimonialsPag
               </div>
 
               {/* Title */}
-              <h3 className="font-bold text-zinc-900 text-base leading-snug">
+              <h3 className="font-bold text-primary text-base leading-snug">
                 &ldquo;{review.title}&rdquo;
               </h3>
 
               {/* Review Text */}
-              <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-sans">
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed font-sans">
                 {review.content}
               </p>
             </div>
 
             {/* Author Footer */}
-            <div className="pt-4 border-t border-zinc-100 flex items-center justify-between text-xs">
+            <div className="pt-4 border-t border-border flex items-center justify-between text-xs">
               <div className="space-y-0.5">
-                <div className="flex items-center gap-1.5 font-bold text-zinc-900">
+                <div className="flex items-center gap-1.5 font-bold text-primary">
                   <span>{review.name}</span>
                   {review.verified && (
                     <span title="Verified Survival Tabs Purchaser" className="inline-flex text-emerald-600">
@@ -254,10 +254,10 @@ export function TestimonialsPage({ onNavigateHome, onOrderNow }: TestimonialsPag
                     </span>
                   )}
                 </div>
-                <div className="text-[11px] text-zinc-500 font-medium">
+                <div className="text-[11px] text-muted-foreground font-medium">
                   {review.role}
                 </div>
-                <div className="flex items-center gap-1 text-[10px] text-zinc-400">
+                <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
                   <MapPin className="h-3 w-3" />
                   <span>{review.location}</span>
                   <span>&bull;</span>
@@ -266,7 +266,7 @@ export function TestimonialsPage({ onNavigateHome, onOrderNow }: TestimonialsPag
                 </div>
               </div>
 
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-zinc-50 border border-zinc-200 text-zinc-400">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary border border-border text-muted-foreground">
                 <Quote className="h-3.5 w-3.5" />
               </div>
             </div>
@@ -276,16 +276,16 @@ export function TestimonialsPage({ onNavigateHome, onOrderNow }: TestimonialsPag
       </div>
 
       {/* Trust & Guarantee Callout Banner */}
-      <div className="rounded-3xl bg-zinc-900 text-white p-8 sm:p-12 shadow-md flex flex-col md:flex-row items-center justify-between gap-8">
+      <div className="rounded-3xl bg-primary text-primary-foreground p-8 sm:p-12 shadow-md flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="space-y-3 text-center md:text-left max-w-xl">
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1 text-xs font-semibold text-amber-400">
+          <div className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 px-3.5 py-1 text-xs font-semibold text-amber-400">
             <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
             <span>25-YEAR SHELF-LIFE GUARANTEE</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight">
             Ready to Secure Your Family's Emergency Food Supply?
           </h2>
-          <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+          <p className="text-xs sm:text-sm text-primary-foreground/80 leading-relaxed">
             Join thousands of preparedness families, wilderness outfitters, and first responders who
             count on The Survival Tabs for dependable, compact emergency nutrition.
           </p>
@@ -302,7 +302,7 @@ export function TestimonialsPage({ onNavigateHome, onOrderNow }: TestimonialsPag
 
           <button
             onClick={onNavigateHome}
-            className="flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-white font-semibold px-6 py-3 text-xs transition-colors cursor-pointer"
+            className="flex items-center justify-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/5 hover:bg-primary-foreground/10 text-primary-foreground font-semibold px-6 py-3 text-xs transition-colors cursor-pointer"
           >
             <span>Return to Home Page</span>
           </button>

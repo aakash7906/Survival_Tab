@@ -294,7 +294,7 @@ export function FaqPage({ onNavigateHome }: FaqPageProps) {
     <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 space-y-10 pt-4 sm:pt-6 lg:pt-8 pb-16">
       
       {/* Breadcrumb Navigation */}
-      <nav className="flex items-center gap-2 text-xs text-zinc-500 font-medium">
+      <nav className="flex items-center gap-2 text-xs text-muted-foreground font-medium">
         <button
           onClick={onNavigateHome}
           className="hover:text-red-600 transition-colors cursor-pointer"
@@ -302,16 +302,16 @@ export function FaqPage({ onNavigateHome }: FaqPageProps) {
           Home
         </button>
         <span>/</span>
-        <span className="text-zinc-900 font-semibold">Frequently Asked Questions</span>
+        <span className="text-primary font-semibold">Frequently Asked Questions</span>
       </nav>
 
       {/* Header Banner */}
-      <div className="relative rounded-2xl sm:rounded-3xl bg-white border border-zinc-200 p-6 sm:p-10 lg:p-14 shadow-xs overflow-hidden text-center space-y-4 sm:space-y-5">  
-        <h1 className="text-2xl min-[400px]:text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-zinc-900 max-w-3xl mx-auto leading-tight">
+      <div className="relative rounded-2xl sm:rounded-3xl bg-card border border-border p-6 sm:p-10 lg:p-14 shadow-xs overflow-hidden text-center space-y-4 sm:space-y-5">  
+        <h1 className="text-2xl min-[400px]:text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-primary max-w-3xl mx-auto leading-tight">
           Frequently Asked Questions
         </h1>
 
-        <p className="text-xs sm:text-sm md:text-base text-zinc-600 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-xs sm:text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
           Everything you need to know about The Survival Tabs: nutrition, 25-year shelf life,
           daily consumption protocols, bio-availability, and emergency preparedness.
         </p>
@@ -319,18 +319,18 @@ export function FaqPage({ onNavigateHome }: FaqPageProps) {
         {/* Search Bar */}
         <div className="max-w-xl mx-auto pt-2 sm:pt-4">
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-400" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search questions (e.g. shelf life, calories, storage)..."
-              className="w-full pl-11 pr-4 py-2.5 sm:py-3 text-xs sm:text-sm rounded-full bg-zinc-50 border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-600/20 focus:border-red-600 transition-all shadow-xs"
+              className="w-full pl-11 pr-4 py-2.5 sm:py-3 text-xs sm:text-sm rounded-full bg-secondary border border-border text-primary placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-red-600/20 focus:border-red-600 transition-all shadow-xs"
             />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery("")}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-zinc-400 hover:text-zinc-600"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-muted-foreground hover:text-primary"
               >
                 Clear
               </button>
@@ -349,8 +349,8 @@ export function FaqPage({ onNavigateHome }: FaqPageProps) {
               onClick={() => setActiveCategory(cat.id)}
               className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                 activeCategory === cat.id
-                  ? "bg-zinc-900 text-white shadow-xs"
-                  : "bg-white text-zinc-600 border border-zinc-200 hover:bg-zinc-50 hover:text-zinc-900"
+                  ? "bg-primary text-primary-foreground shadow-xs"
+                  : "bg-card text-muted-foreground border border-border hover:bg-secondary hover:text-primary"
               }`}
             >
               {cat.label}
@@ -359,7 +359,7 @@ export function FaqPage({ onNavigateHome }: FaqPageProps) {
         </div>
 
         {/* Expand / Collapse Controls */}
-        <div className="flex items-center gap-2 text-xs font-medium text-zinc-500 shrink-0">
+        <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground shrink-0">
           <button
             onClick={expandAll}
             className="hover:text-red-600 transition-colors cursor-pointer"
@@ -379,10 +379,10 @@ export function FaqPage({ onNavigateHome }: FaqPageProps) {
       {/* Accordion Questions List */}
       <div className="space-y-3">
         {filteredFaqs.length === 0 ? (
-          <div className="text-center py-16 bg-white rounded-2xl border border-zinc-200 p-8 space-y-3">
-            <HelpCircle className="h-10 w-10 text-zinc-300 mx-auto" />
-            <h3 className="font-bold text-zinc-900 text-base">No matching questions found</h3>
-            <p className="text-xs text-zinc-500">
+          <div className="text-center py-16 bg-card rounded-2xl border border-border p-8 space-y-3">
+            <HelpCircle className="h-10 w-10 text-muted-foreground/50 mx-auto" />
+            <h3 className="font-bold text-primary text-base">No matching questions found</h3>
+            <p className="text-xs text-muted-foreground">
               Try adjusting your search terms or browse all categories above.
             </p>
             <button
@@ -401,10 +401,10 @@ export function FaqPage({ onNavigateHome }: FaqPageProps) {
             return (
               <div
                 key={item.id}
-                className={`rounded-2xl border transition-all duration-200 bg-white overflow-hidden ${
+                className={`rounded-2xl border transition-all duration-200 bg-card overflow-hidden ${
                   isOpen
                     ? "border-red-200 shadow-sm ring-1 ring-red-50"
-                    : "border-zinc-200 hover:border-zinc-300"
+                    : "border-border hover:border-border"
                 }`}
               >
                 {/* Accordion Header / Toggle */}
@@ -414,10 +414,10 @@ export function FaqPage({ onNavigateHome }: FaqPageProps) {
                   aria-expanded={isOpen}
                 >
                   <div className="flex items-start gap-3.5">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-zinc-100 text-[11px] font-bold text-zinc-600 mt-0.5">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-secondary text-[11px] font-bold text-muted-foreground mt-0.5">
                       {index + 1}
                     </span>
-                    <span className="font-bold text-zinc-900 text-sm sm:text-base leading-snug">
+                    <span className="font-bold text-primary text-sm sm:text-base leading-snug">
                       {item.question}
                     </span>
                   </div>
@@ -426,7 +426,7 @@ export function FaqPage({ onNavigateHome }: FaqPageProps) {
                     className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-200 ${
                       isOpen
                         ? "bg-red-50 border-red-200 text-red-600 rotate-180"
-                        : "bg-zinc-50 border-zinc-200 text-zinc-400"
+                        : "bg-secondary border-border text-muted-foreground"
                     }`}
                   >
                     <ChevronDown className="h-4 w-4" />
@@ -435,15 +435,15 @@ export function FaqPage({ onNavigateHome }: FaqPageProps) {
 
                 {/* Accordion Content Panel */}
                 {isOpen && (
-                  <div className="px-5 sm:px-6 pb-6 pt-1 border-t border-zinc-100 space-y-4 text-xs sm:text-sm text-zinc-600 leading-relaxed font-sans">
-                    <p className="text-zinc-700 whitespace-pre-line leading-relaxed">{item.answer}</p>
+                  <div className="px-5 sm:px-6 pb-6 pt-1 border-t border-border space-y-4 text-xs sm:text-sm text-muted-foreground leading-relaxed font-sans">
+                    <p className="text-foreground whitespace-pre-line leading-relaxed">{item.answer}</p>
 
                     {item.highlights && item.highlights.length > 0 && (
-                      <div className="pt-2 rounded-xl bg-zinc-50 p-4 border border-zinc-200/80 space-y-2">
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-900 block">
+                      <div className="pt-2 rounded-xl bg-secondary p-4 border border-border space-y-2">
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-primary block">
                           Key Takeaways:
                         </span>
-                        <ul className="space-y-1.5 text-xs text-zinc-700">
+                        <ul className="space-y-1.5 text-xs text-foreground">
                           {item.highlights.map((highlight, hIdx) => (
                             <li key={hIdx} className="flex items-start gap-2">
                               <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />

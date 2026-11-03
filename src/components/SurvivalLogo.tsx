@@ -21,10 +21,10 @@ export function SurvivalLogo({ className = "" }: { className?: string }) {
           <div className="absolute inset-2.5 rounded-full border border-red-200/70" />
           <div className="absolute h-full w-[2px] bg-red-950/70" />
           <div className="absolute w-full h-[2px] bg-red-950/70" />
-          <div className="relative z-10 h-2 w-2 rounded-full bg-white shadow-sm" />
+          <div className="relative z-10 h-2 w-2 rounded-full bg-primary-foreground shadow-sm" />
         </div>
         <div className="flex flex-col leading-none">
-          <span className="font-black text-xl tracking-tight text-zinc-950 uppercase font-sans">
+          <span className="font-black text-xl tracking-tight text-primary uppercase font-sans">
             SURVIVAL TABS<span className="text-red-600 text-xs align-super">®</span>
           </span>
           <span className="text-[11px] font-serif italic text-amber-600 tracking-normal font-semibold">

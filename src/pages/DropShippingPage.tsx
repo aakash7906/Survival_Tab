@@ -117,28 +117,28 @@ export function DropShippingPage({
   return (
     <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16 pt-4 sm:pt-6 lg:pt-8 pb-16 sm:pb-24">
       {/* Breadcrumb Navigation */}
-      <nav className="flex items-center gap-2 text-xs text-zinc-500 font-medium">
+      <nav className="flex items-center gap-2 text-xs text-muted-foreground font-medium">
         <button
           onClick={onNavigateHome}
-          className="hover:text-red-600 transition-colors cursor-pointer"
+          className="hover:text-primary transition-colors cursor-pointer"
         >
           Home
         </button>
         <span>/</span>
         <button
           onClick={onNavigateMakeMoney}
-          className="hover:text-red-600 transition-colors cursor-pointer"
+          className="hover:text-primary transition-colors cursor-pointer"
         >
           Make Money
         </button>
         <span>/</span>
-        <span className="text-zinc-900 font-semibold">Drop Shipping</span>
+        <span className="text-primary font-semibold">Drop Shipping</span>
       </nav>
 
       {/* Main Header Card (Verbatim from User Screenshot) */}
-      <section className="relative rounded-2xl sm:rounded-3xl bg-white border border-zinc-200 p-6 sm:p-10 lg:p-14 shadow-xs overflow-hidden space-y-6">
+      <section className="relative rounded-2xl sm:rounded-3xl bg-card border border-border p-6 sm:p-10 lg:p-14 shadow-xs overflow-hidden space-y-6">
         <div className="text-center space-y-3">
-          <h1 className="text-3xl min-[400px]:text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-zinc-900 max-w-4xl mx-auto leading-tight">
+          <h1 className="text-3xl min-[400px]:text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-primary max-w-4xl mx-auto leading-tight">
             WHY YOU WANT TO BE A DROP SHIPPER
           </h1>
 
@@ -163,7 +163,7 @@ export function DropShippingPage({
           </div>
 
           {/* Introductory Paragraph verbatim from screenshot */}
-          <p className="text-sm sm:text-base text-zinc-700 max-w-3xl mx-auto leading-relaxed text-justify sm:text-center pt-2">
+          <p className="text-sm sm:text-base text-foreground max-w-3xl mx-auto leading-relaxed text-justify sm:text-center pt-2">
             If you&apos;re still wavering back-and-forth, hopefully this will help convince you why you should&mdash;along with the most important practices to ensure you can scale your business while keeping unnecessary stress at bay. Here are four reasons why you should start a drop shipping business, and why you&apos;re leaving money on the table if you don&apos;t:
           </p>
         </div>
@@ -175,23 +175,23 @@ export function DropShippingPage({
             return (
               <div
                 key={reason.id}
-                className="rounded-2xl border border-zinc-200 bg-zinc-50 overflow-hidden transition-all"
+                className="rounded-2xl border border-border bg-secondary overflow-hidden transition-all"
               >
                 <button
                   type="button"
                   onClick={() => toggleReason(reason.id)}
-                  className="w-full flex items-center justify-between p-4 sm:p-5 text-left font-bold text-zinc-900 hover:text-blue-600 hover:bg-zinc-100/80 transition-colors cursor-pointer"
+                  className="w-full flex items-center justify-between p-4 sm:p-5 text-left font-bold text-primary hover:text-blue-600 hover:bg-secondary/80 transition-colors cursor-pointer"
                 >
                   <span className="text-sm sm:text-base">{reason.title}</span>
                   {isOpen ? (
-                    <ChevronUp className="h-5 w-5 text-zinc-500 shrink-0" />
+                    <ChevronUp className="h-5 w-5 text-muted-foreground shrink-0" />
                   ) : (
-                    <ChevronDown className="h-5 w-5 text-zinc-500 shrink-0" />
+                    <ChevronDown className="h-5 w-5 text-muted-foreground shrink-0" />
                   )}
                 </button>
 
                 {isOpen && (
-                  <div className="px-4 pb-5 sm:px-5 sm:pb-6 space-y-3 text-xs sm:text-sm text-zinc-600 leading-relaxed border-t border-zinc-200/60 pt-4 bg-white">
+                  <div className="px-4 pb-5 sm:px-5 sm:pb-6 space-y-3 text-xs sm:text-sm text-muted-foreground leading-relaxed border-t border-border pt-4 bg-card">
                     {reason.details.map((paragraph, idx) => (
                       <p key={idx}>{paragraph}</p>
                     ))}
@@ -224,42 +224,42 @@ export function DropShippingPage({
 
       {/* 4 Value Propositions Grid */}
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="rounded-2xl bg-white border border-zinc-200 p-6 space-y-3 shadow-xs">
+        <div className="rounded-2xl bg-card border border-border p-6 space-y-3 shadow-xs">
           <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100">
             <DollarSign className="h-5 w-5" />
           </div>
-          <h3 className="text-base font-bold text-zinc-900">Zero Inventory Debt</h3>
-          <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">
+          <h3 className="text-base font-bold text-primary">Zero Inventory Debt</h3>
+          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
             Never pay for products upfront until your customer has already paid you in full on your store.
           </p>
         </div>
 
-        <div className="rounded-2xl bg-white border border-zinc-200 p-6 space-y-3 shadow-xs">
+        <div className="rounded-2xl bg-card border border-border p-6 space-y-3 shadow-xs">
           <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100">
             <PackageCheck className="h-5 w-5" />
           </div>
-          <h3 className="text-base font-bold text-zinc-900">Branded Packing Slips</h3>
-          <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">
+          <h3 className="text-base font-bold text-primary">Branded Packing Slips</h3>
+          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
             Your store name, contact info, and logo are printed on every customer invoice slip.
           </p>
         </div>
 
-        <div className="rounded-2xl bg-white border border-zinc-200 p-6 space-y-3 shadow-xs">
+        <div className="rounded-2xl bg-card border border-border p-6 space-y-3 shadow-xs">
           <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-50 text-amber-600 border border-amber-100">
             <Truck className="h-5 w-5" />
           </div>
-          <h3 className="text-base font-bold text-zinc-900">Fast US Dispatch</h3>
-          <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">
+          <h3 className="text-base font-bold text-primary">Fast US Dispatch</h3>
+          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
             Orders placed on business days ship within 24 hours with full tracking notifications.
           </p>
         </div>
 
-        <div className="rounded-2xl bg-white border border-zinc-200 p-6 space-y-3 shadow-xs">
+        <div className="rounded-2xl bg-card border border-border p-6 space-y-3 shadow-xs">
           <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-purple-50 text-purple-600 border border-purple-100">
             <Laptop className="h-5 w-5" />
           </div>
-          <h3 className="text-base font-bold text-zinc-900">Complete Mobility</h3>
-          <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">
+          <h3 className="text-base font-bold text-primary">Complete Mobility</h3>
+          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
             Manage your store orders and marketing from your phone or laptop from anywhere in the world.
           </p>
         </div>
@@ -268,17 +268,17 @@ export function DropShippingPage({
       {/* Dropship Partner Application Form */}
       <section
         id="dropship-application"
-        className="rounded-2xl sm:rounded-3xl bg-white border border-zinc-200 p-6 sm:p-10 lg:p-14 shadow-xs space-y-8"
+        className="rounded-2xl sm:rounded-3xl bg-card border border-border p-6 sm:p-10 lg:p-14 shadow-xs space-y-8"
       >
         <div className="text-center space-y-2 max-w-2xl mx-auto">
-          <span className="text-xs font-bold uppercase tracking-wider text-red-600">
+          <span className="text-xs font-bold uppercase tracking-wider text-primary">
             Start Selling Online
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-zinc-900 uppercase">
+          <h2 className="text-2xl sm:text-3xl font-black text-primary uppercase">
             Dropship Reseller Application
           </h2>
-          <div className="h-0.5 w-16 bg-red-600 mx-auto" />
-          <p className="text-xs sm:text-sm text-zinc-600">
+          <div className="h-0.5 w-16 bg-primary mx-auto" />
+          <p className="text-xs sm:text-sm text-muted-foreground">
             Fill out the form below to connect your store with our dropshipping fulfillment network.
           </p>
         </div>
@@ -305,7 +305,7 @@ export function DropShippingPage({
           <form onSubmit={handleSubmit} className="max-w-3xl mx-auto space-y-5">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700">
+                <label className="block text-xs font-bold uppercase tracking-wider text-foreground">
                   Full Name *
                 </label>
                 <input
@@ -314,12 +314,12 @@ export function DropShippingPage({
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="John Smith"
-                  className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl bg-zinc-50 border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-600/20 focus:border-red-600 transition-all"
+                  className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700">
+                <label className="block text-xs font-bold uppercase tracking-wider text-foreground">
                   Online Store / Business Name *
                 </label>
                 <input
@@ -328,14 +328,14 @@ export function DropShippingPage({
                   value={formData.storeName}
                   onChange={(e) => setFormData({ ...formData, storeName: e.target.value })}
                   placeholder="Prepper Gear Depot"
-                  className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl bg-zinc-50 border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-600/20 focus:border-red-600 transition-all"
+                  className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700">
+                <label className="block text-xs font-bold uppercase tracking-wider text-foreground">
                   Email Address *
                 </label>
                 <input
@@ -344,12 +344,12 @@ export function DropShippingPage({
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="support@prepperstore.com"
-                  className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl bg-zinc-50 border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-600/20 focus:border-red-600 transition-all"
+                  className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700">
+                <label className="block text-xs font-bold uppercase tracking-wider text-foreground">
                   Phone Number *
                 </label>
                 <input
@@ -358,20 +358,20 @@ export function DropShippingPage({
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   placeholder="(800) 000-0000"
-                  className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl bg-zinc-50 border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-600/20 focus:border-red-600 transition-all"
+                  className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700">
+                <label className="block text-xs font-bold uppercase tracking-wider text-foreground">
                   Ecommerce Platform
                 </label>
                 <select
                   value={formData.platform}
                   onChange={(e) => setFormData({ ...formData, platform: e.target.value })}
-                  className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl bg-zinc-50 border border-zinc-200 text-zinc-900 focus:outline-none focus:ring-2 focus:ring-red-600/20 focus:border-red-600 transition-all"
+                  className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl bg-secondary border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                 >
                   <option value="Shopify">Shopify</option>
                   <option value="WooCommerce">WooCommerce</option>
@@ -383,13 +383,13 @@ export function DropShippingPage({
               </div>
 
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700">
+                <label className="block text-xs font-bold uppercase tracking-wider text-foreground">
                   Estimated Monthly Order Volume
                 </label>
                 <select
                   value={formData.monthlyOrders}
                   onChange={(e) => setFormData({ ...formData, monthlyOrders: e.target.value })}
-                  className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl bg-zinc-50 border border-zinc-200 text-zinc-900 focus:outline-none focus:ring-2 focus:ring-red-600/20 focus:border-red-600 transition-all"
+                  className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl bg-secondary border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                 >
                   <option value="1 - 25 orders/month">1 - 25 orders/month</option>
                   <option value="26 - 100 orders/month">26 - 100 orders/month</option>
@@ -400,7 +400,7 @@ export function DropShippingPage({
             </div>
 
             <div className="space-y-1.5">
-              <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700">
+              <label className="block text-xs font-bold uppercase tracking-wider text-foreground">
                 Store Website URL
               </label>
               <input
@@ -408,12 +408,12 @@ export function DropShippingPage({
                 value={formData.website}
                 onChange={(e) => setFormData({ ...formData, website: e.target.value })}
                 placeholder="https://yourstore.com"
-                className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl bg-zinc-50 border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-600/20 focus:border-red-600 transition-all"
+                className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700">
+              <label className="block text-xs font-bold uppercase tracking-wider text-foreground">
                 Additional Notes or Integration Questions
               </label>
               <textarea
@@ -421,14 +421,14 @@ export function DropShippingPage({
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 placeholder="Tell us about your audience, specific shipping requirements, or packing slip logo..."
-                className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl bg-zinc-50 border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-600/20 focus:border-red-600 transition-all resize-none"
+                className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none"
               />
             </div>
 
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full flex items-center justify-center gap-2 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold py-3.5 text-xs uppercase tracking-wider shadow-sm hover:shadow transition-all cursor-pointer disabled:opacity-70"
+              className="w-full flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-3.5 text-xs uppercase tracking-wider shadow-sm hover:shadow transition-all cursor-pointer disabled:opacity-70"
             >
               {isSubmitting ? (
                 <span>Submitting Registration...</span>
@@ -444,18 +444,18 @@ export function DropShippingPage({
       </section>
 
       {/* Direct Contact Bar */}
-      <section className="rounded-2xl bg-zinc-50 border border-zinc-200 p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <section className="rounded-2xl bg-secondary border border-border p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div className="space-y-1">
-          <h3 className="text-base font-bold text-zinc-900 flex items-center gap-2">
-            <Building2 className="h-4 w-4 text-emerald-600" />
+          <h3 className="text-base font-bold text-primary flex items-center gap-2">
+            <Building2 className="h-4 w-4 text-primary" />
             <span>Dropship Support Team &bull; Concordia, Missouri</span>
           </h3>
-          <p className="text-xs sm:text-sm text-zinc-600">
+          <p className="text-xs sm:text-sm text-muted-foreground">
             Need custom API integration or batch CSV upload support? Reach out to our technical fulfillment team.
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-zinc-700">
+        <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-secondary-foreground">
           <a
             href="tel:800-944-1511"
             className="inline-flex items-center gap-1.5 hover:text-emerald-600 transition-colors"
@@ -463,7 +463,7 @@ export function DropShippingPage({
             <Phone className="h-3.5 w-3.5 text-emerald-600" />
             <span>800-944-1511</span>
           </a>
-          <span className="text-zinc-300">&bull;</span>
+          <span className="text-border">&bull;</span>
           <a
             href="mailto:Sales@FoodReserves.com"
             className="inline-flex items-center gap-1.5 hover:text-emerald-600 transition-colors"
@@ -473,7 +473,7 @@ export function DropShippingPage({
           </a>
           {onNavigateContact && (
             <>
-              <span className="text-zinc-300">&bull;</span>
+              <span className="text-border">&bull;</span>
               <button
                 onClick={onNavigateContact}
                 className="hover:text-emerald-600 transition-colors cursor-pointer"

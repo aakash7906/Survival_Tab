@@ -7,9 +7,9 @@ export function Hero() {
   }
 
   return (
-    <section id="hero" className="relative w-full overflow-hidden bg-white">
+    <section id="hero" className="relative w-full overflow-hidden bg-background">
       {/* Hero Wilderness Image Banner from survivaltabs.com with responsive height */}
-      <div className="relative w-full min-h-[480px] sm:min-h-[520px] lg:h-[560px] rounded-2xl sm:rounded-3xl overflow-hidden bg-zinc-900 shadow-md">
+      <div className="relative w-full min-h-[480px] sm:min-h-[520px] lg:h-[560px] rounded-2xl sm:rounded-3xl overflow-hidden bg-primary shadow-md">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -17,16 +17,16 @@ export function Hero() {
           }}
         />
         {/* Soft dark overlay for text contrast */}
-        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-0 bg-primary/45" />
 
         {/* Hero Content */}
-        <div className="relative z-10 h-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between py-6 sm:py-10 lg:py-12 text-white text-center sm:text-left">
+        <div className="relative z-10 h-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between py-6 sm:py-10 lg:py-12 text-primary-foreground text-center sm:text-left">
           
           {/* Main Brand & Bottle Lockup */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-8 my-auto">
             <div className="space-y-3 sm:space-y-4 max-w-xl">
               {/* Target Brand Logo from public/images */}
-              <div className="inline-flex items-center gap-3 bg-black/40 backdrop-blur-md px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-2xl border border-white/20">
+              <div className="inline-flex items-center gap-3 bg-primary/40 backdrop-blur-md px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-2xl border border-primary-foreground/20">
                 <img
                   src="/images/survival_tabs_logo_outlined.png"
                   alt="Survival Tabs"
@@ -34,18 +34,18 @@ export function Hero() {
                 />
               </div>
 
-              <h1 className="text-2xl min-[400px]:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white drop-shadow-md leading-tight">
+              <h1 className="text-2xl min-[400px]:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-primary-foreground drop-shadow-md leading-tight">
                 The Best Nutrition in the Smallest Packaging
               </h1>
 
-              <p className="text-zinc-200 text-xs sm:text-base font-medium max-w-lg leading-relaxed">
+              <p className="text-primary-foreground/90 text-xs sm:text-base font-medium max-w-lg leading-relaxed">
                 Emergency food rations providing 100% of 15 essential vitamins and minerals. Certified 25-year shelf life.
               </p>
 
               <div className="pt-1 sm:pt-2">
                 <button
                   onClick={scrollToPurchase}
-                  className="rounded-full bg-red-600 hover:bg-red-700 text-white font-bold px-5 sm:px-6 py-2.5 text-xs sm:text-sm shadow-md transition-all cursor-pointer hover:scale-105 active:scale-95"
+                  className="rounded-full bg-red-600 hover:bg-red-700 text-primary-foreground font-bold px-5 sm:px-6 py-2.5 text-xs sm:text-sm shadow-md transition-all cursor-pointer hover:scale-105 active:scale-95"
                 >
                   Order Rations Now
                 </button>
@@ -66,20 +66,20 @@ export function Hero() {
           </div>
 
           {/* Authentic Pill Badges with Made in USA */}
-          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-2.5 lg:gap-3 pt-4 border-t border-white/20 text-[11px] sm:text-xs font-semibold">
-            <div className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-black/50 backdrop-blur-md px-2.5 sm:px-3.5 py-1.5 border border-white/15">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-2.5 lg:gap-3 pt-4 border-t border-primary-foreground/20 text-[11px] sm:text-xs font-semibold">
+            <div className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-primary/60 backdrop-blur-md px-2.5 sm:px-3.5 py-1.5 border border-primary-foreground/15">
               <Clock className="h-3.5 w-3.5 text-amber-400 shrink-0" />
               <span>25-Year Shelf Life</span>
             </div>
-            <div className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-black/50 backdrop-blur-md px-2.5 sm:px-3.5 py-1.5 border border-white/15">
+            <div className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-primary/60 backdrop-blur-md px-2.5 sm:px-3.5 py-1.5 border border-primary-foreground/15">
               <Truck className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
               <span>Free Shipping Over $150</span>
             </div>
-            <div className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-black/50 backdrop-blur-md px-2.5 sm:px-3.5 py-1.5 border border-white/15">
+            <div className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-primary/60 backdrop-blur-md px-2.5 sm:px-3.5 py-1.5 border border-primary-foreground/15">
               <ShieldCheck className="h-3.5 w-3.5 text-red-400 shrink-0" />
               <span>Gluten-Free &amp; Non-GMO</span>
             </div>
-            <div className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-black/50 backdrop-blur-md px-2.5 sm:px-3.5 py-1.5 border border-white/15">
+            <div className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-primary/60 backdrop-blur-md px-2.5 sm:px-3.5 py-1.5 border border-primary-foreground/15">
               <img
                 src="/images/made-in-usa.png"
                 alt="Made in USA"

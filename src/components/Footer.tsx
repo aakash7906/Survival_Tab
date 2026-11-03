@@ -100,7 +100,7 @@ export function Footer({ onNavigate }: FooterProps) {
   }
 
   return (
-    <footer id="contact" className="w-full bg-[#FFFFFF] border-t border-slate-200 mt-12 sm:mt-16 pt-10 sm:pt-14 pb-8 text-slate-700">
+    <footer id="contact" className="w-full bg-background border-t border-border mt-12 sm:mt-16 pt-10 sm:pt-14 pb-8 text-muted-foreground">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 space-y-10 sm:space-y-12">
 
         {/* Main Columns */}
@@ -115,7 +115,7 @@ export function Footer({ onNavigate }: FooterProps) {
                 className="h-9 w-auto object-contain"
               />
             </div>
-            <div className="space-y-1.5 text-xs text-slate-600 leading-relaxed">
+            <div className="space-y-1.5 text-xs text-muted-foreground leading-relaxed">
               <p className="font-bold text-xs uppercase tracking-wider text-amber-600">
                 GOOD FOR YOU AMERICA
               </p>
@@ -127,10 +127,10 @@ export function Footer({ onNavigate }: FooterProps) {
 
           {/* Company Column */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="font-bold text-xs uppercase tracking-wider text-slate-900">
+            <h4 className="font-bold text-xs uppercase tracking-wider text-primary">
               COMPANY
             </h4>
-            <ul className="space-y-2 text-xs text-slate-500">
+            <ul className="space-y-2 text-xs text-muted-foreground">
               <li><button onClick={() => handleNav("about", "about")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">About</button></li>
               <li><button onClick={() => handleNav("#purchase", "home")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">Products</button></li>
               <li><button onClick={() => handleNav("#emergency", "home")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">News</button></li>
@@ -141,32 +141,32 @@ export function Footer({ onNavigate }: FooterProps) {
 
           {/* Resell / Promote Column */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="font-bold text-xs uppercase tracking-wider text-slate-900">
+            <h4 className="font-bold text-xs uppercase tracking-wider text-primary">
               RESELL / PROMOTE
             </h4>
-            <ul className="space-y-2 text-xs text-slate-500">
+            <ul className="space-y-2 text-xs text-muted-foreground">
               <li><button onClick={() => handleNav("make-money", "make-money")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left">Make Money</button></li>
               <li>
                 <button onClick={() => handleNav("wholesale", "wholesale")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left flex items-center gap-1.5">
-                  <span className="text-[9px] text-slate-500">▶</span>
+                  <span className="text-[9px] text-muted-foreground">▶</span>
                   <span>Wholesale Distributor</span>
                 </button>
               </li>
               <li>
                 <button onClick={() => handleNav("dropship", "dropship")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left flex items-center gap-1.5">
-                  <span className="text-[9px] text-slate-500">▶</span>
+                  <span className="text-[9px] text-muted-foreground">▶</span>
                   <span>Drop Shipping</span>
                 </button>
               </li>
               <li>
                 <button onClick={() => handleNav("export", "export")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left flex items-center gap-1.5">
-                  <span className="text-[9px] text-slate-500">▶</span>
+                  <span className="text-[9px] text-muted-foreground">▶</span>
                   <span>Foreign Export</span>
                 </button>
               </li>
               <li>
                 <button onClick={() => handleNav("affiliate", "affiliate")} className="hover:text-emerald-600 transition-colors cursor-pointer text-left flex items-center gap-1.5">
-                  <span className="text-[9px] text-slate-500">▶</span>
+                  <span className="text-[9px] text-muted-foreground">▶</span>
                   <span>Affiliate Program</span>
                 </button>
               </li>
@@ -176,10 +176,10 @@ export function Footer({ onNavigate }: FooterProps) {
           {/* Contact Us & Follow Us Column */}
           <div className="lg:col-span-3 space-y-4">
             <div className="space-y-2">
-              <h4 className="font-bold text-xs uppercase tracking-wider text-slate-900">
+              <h4 className="font-bold text-xs uppercase tracking-wider text-primary">
                 Contact Us
               </h4>
-              <div className="space-y-1.5 text-xs text-slate-600">
+              <div className="space-y-1.5 text-xs text-muted-foreground">
                 <div className="flex items-center gap-2">
                   <Phone className="h-4 w-4 text-emerald-600 shrink-0" />
                   <a href="tel:800-944-1511" className="hover:text-emerald-600 transition-colors font-medium">
@@ -196,7 +196,7 @@ export function Footer({ onNavigate }: FooterProps) {
             </div>
 
             <div className="space-y-2 pt-1">
-              <h4 className="font-bold text-xs uppercase tracking-wider text-slate-900">
+              <h4 className="font-bold text-xs uppercase tracking-wider text-primary">
                 Follow Us
               </h4>
               <div className="flex items-center gap-2">
@@ -234,7 +234,7 @@ export function Footer({ onNavigate }: FooterProps) {
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 hover:border-emerald-300 transition-all cursor-pointer"
+                      className="group flex h-8 w-8 items-center justify-center rounded-lg bg-secondary text-secondary-foreground hover:bg-emerald-50 hover:text-emerald-600 hover:border-emerald-300 transition-all cursor-pointer"
                       title={item.name}
                       aria-label={item.name}
                     >
@@ -249,7 +249,7 @@ export function Footer({ onNavigate }: FooterProps) {
         </div>
 
         {/* Back to top button & copyright */}
-        <div className="pt-6 sm:pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 text-center sm:text-left">
+        <div className="pt-6 sm:pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground text-center sm:text-left">
           <div>
             &copy; 2026 Survival Tabs
           </div>
@@ -257,7 +257,7 @@ export function Footer({ onNavigate }: FooterProps) {
           <div className="flex items-center gap-6">
             <button
               onClick={scrollToTop}
-              className="group flex items-center gap-1.5 text-slate-700 hover:text-emerald-600 font-semibold cursor-pointer transition-colors"
+              className="group flex items-center gap-1.5 text-primary hover:text-emerald-600 font-semibold cursor-pointer transition-colors"
             >
               <span>Back to Top</span>
               <ArrowUp className="h-3.5 w-3.5 group-hover:-translate-y-0.5 transition-transform" />

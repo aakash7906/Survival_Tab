@@ -28,22 +28,22 @@ export function CartDrawer({
   const freeShippingThreshold = 150 - subtotal
 
   return (
-    <div className="fixed inset-0 z-50 flex justify-end bg-black/40 backdrop-blur-sm animate-fade-in-up">
-      <div className="relative w-full max-w-md bg-white h-full shadow-2xl flex flex-col justify-between">
+    <div className="fixed inset-0 z-50 flex justify-end bg-primary/40 backdrop-blur-sm animate-fade-in-up">
+      <div className="relative w-full max-w-md bg-card h-full shadow-2xl flex flex-col justify-between">
         
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-zinc-200">
+        <div className="flex items-center justify-between p-6 border-b border-border">
           <div className="flex items-center gap-2">
             <ShoppingBag className="h-5 w-5 text-red-600" />
-            <h3 className="font-bold text-lg text-zinc-950">Your Rations Cart</h3>
-            <span className="rounded-full bg-zinc-100 text-zinc-700 text-xs font-semibold px-2 py-0.5">
+            <h3 className="font-bold text-lg text-primary">Your Rations Cart</h3>
+            <span className="rounded-full bg-secondary text-foreground text-xs font-semibold px-2 py-0.5">
               {items.reduce((acc, i) => acc + i.quantity, 0)} items
             </span>
           </div>
 
           <button
             onClick={onClose}
-            className="rounded-full p-2 text-zinc-400 hover:text-zinc-900 hover:bg-zinc-100 cursor-pointer"
+            className="rounded-full p-2 text-muted-foreground hover:text-primary hover:bg-secondary cursor-pointer"
           >
             <X className="h-5 w-5" />
           </button>
@@ -67,41 +67,41 @@ export function CartDrawer({
         {/* Items List */}
         <div className="flex-1 overflow-y-auto p-6 space-y-3">
           {items.length === 0 ? (
-            <div className="py-16 text-center text-zinc-400 space-y-2">
+            <div className="py-16 text-center text-muted-foreground space-y-2">
               <ShoppingBag className="h-12 w-12 mx-auto stroke-1" />
-              <div className="font-semibold text-zinc-600">Your cart is empty</div>
+              <div className="font-semibold text-muted-foreground">Your cart is empty</div>
               <p className="text-xs">Browse the flavors above to add emergency rations.</p>
             </div>
           ) : (
             items.map((item) => (
               <div
                 key={item.product.id}
-                className="flex items-center justify-between gap-4 p-3 rounded-xl border border-zinc-200 bg-zinc-50"
+                className="flex items-center justify-between gap-4 p-3 rounded-xl border border-border bg-secondary"
               >
                 <div className="flex items-center gap-3">
                   {item.product.image && (
                     <img
                       src={item.product.image}
                       alt={item.product.name}
-                      className="h-12 w-12 object-contain rounded bg-white border border-zinc-200 p-0.5 shrink-0"
+                      className="h-12 w-12 object-contain rounded bg-card border border-border p-0.5 shrink-0"
                     />
                   )}
                   <div>
-                    <div className="font-bold text-sm text-zinc-900">{item.product.name}</div>
-                    <div className="text-xs text-zinc-500">{item.product.flavor}</div>
-                    <div className="text-xs text-zinc-700 font-semibold mt-1">
+                    <div className="font-bold text-sm text-primary">{item.product.name}</div>
+                    <div className="text-xs text-muted-foreground">{item.product.flavor}</div>
+                    <div className="text-xs text-foreground font-semibold mt-1">
                       Qty: {item.quantity} &times; ${item.product.price.toFixed(2)}
                     </div>
                   </div>
                 </div>
 
                 <div className="flex flex-col items-end gap-2 shrink-0">
-                  <span className="font-black text-sm text-zinc-950">
+                  <span className="font-black text-sm text-primary">
                     ${(item.product.price * item.quantity).toFixed(2)}
                   </span>
                   <button
                     onClick={() => onRemove(item.product.id)}
-                    className="text-zinc-400 hover:text-red-600 cursor-pointer"
+                    className="text-muted-foreground hover:text-red-600 cursor-pointer"
                     title="Remove item"
                   >
                     <Trash2 className="h-4 w-4" />
@@ -114,17 +114,17 @@ export function CartDrawer({
 
         {/* Footer */}
         {items.length > 0 && (
-          <div className="p-6 border-t border-zinc-200 bg-zinc-50 space-y-4">
-            <div className="space-y-1.5 text-xs text-zinc-600">
+          <div className="p-6 border-t border-border bg-secondary space-y-4">
+            <div className="space-y-1.5 text-xs text-muted-foreground">
               <div className="flex justify-between">
                 <span>Subtotal</span>
-                <span className="font-bold text-zinc-900">${subtotal.toFixed(2)}</span>
+                <span className="font-bold text-primary">${subtotal.toFixed(2)}</span>
               </div>
               <div className="flex justify-between">
                 <span>Shipping</span>
                 <span>{isFreeShipping ? "FREE" : "$9.95"}</span>
               </div>
-              <div className="flex justify-between text-base font-black text-zinc-900 pt-2 border-t border-zinc-200">
+              <div className="flex justify-between text-base font-black text-primary pt-2 border-t border-border">
                 <span>Total</span>
                 <span>${(subtotal + (isFreeShipping ? 0 : 9.95)).toFixed(2)}</span>
               </div>
@@ -134,7 +134,7 @@ export function CartDrawer({
               onClick={() => {
                 alert(`Proceeding to checkout with $${(subtotal + (isFreeShipping ? 0 : 9.95)).toFixed(2)} in Survival Tabs rations.`)
               }}
-              className="w-full flex items-center justify-center gap-2 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 uppercase tracking-wider text-xs shadow transition-all cursor-pointer"
+              className="w-full flex items-center justify-center gap-2 rounded-lg bg-red-600 hover:bg-red-700 text-primary-foreground font-bold py-3 px-6 uppercase tracking-wider text-xs shadow transition-all cursor-pointer"
             >
               <span>Proceed to Checkout</span>
               <ArrowRight className="h-4 w-4" />
@@ -142,7 +142,7 @@ export function CartDrawer({
 
             <button
               onClick={onClear}
-              className="w-full text-center text-xs text-zinc-400 hover:text-zinc-700 cursor-pointer"
+              className="w-full text-center text-xs text-muted-foreground hover:text-foreground cursor-pointer"
             >
               Clear Cart
             </button>
