@@ -10,12 +10,17 @@ interface HomePageProps {
 
 export function HomePage({ onAddToCart }: HomePageProps) {
   return (
-    <main className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8 pt-4 sm:pt-6 lg:pt-8 pb-12">
+    <main className="w-full pb-12">
+      {/* Full-Screen Edge-to-Edge Hero Section */}
       <Hero />
-      <EmergencyRationsSection />
-      <PurchaseSection onAddToCart={onAddToCart} />
-      <NutritionFactsSection />
-      <SurvivalConceptSection />
+
+      {/* Main Page Content - Unaffected & contained */}
+      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8 pt-8 sm:pt-12">
+        <EmergencyRationsSection />
+        <PurchaseSection onAddToCart={onAddToCart} />
+        <NutritionFactsSection />
+        <SurvivalConceptSection />
+      </div>
     </main>
   )
 }
